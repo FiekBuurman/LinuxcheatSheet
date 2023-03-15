@@ -23,6 +23,7 @@ df -h
 
 # Mount usb to directory
 mount /dev/sdb1 /mnt/USB_DATA
+umount /mnt/USB_DATA
 
 # Copy files from a dir
 cp -r /path/to/source/directory /path/to/destination/directory
@@ -34,3 +35,7 @@ mv /mnt/usb_drive/dump /mnt/USB_DATA
 rm -r dirName
 rm -rf folderName
 rm -rfv folderName
+
+#updates
+apt-get update && apt-get upgrade
+apt-get update && apt-get dist-upgrade
