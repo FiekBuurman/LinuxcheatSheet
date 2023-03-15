@@ -1,0 +1,31 @@
+
+#update dns lists
+nano /etc/resolv.conf
+ - nameserver 127.0.0.1
+pihole updateGravity
+
+# Directory or files info
+ls -a = alles
+ls -ap = alleen files geen dirs
+
+#update proxmox
+apt-get update
+apt dist-upgrade
+
+# Create Directory
+mkdir /mnt/USB_DATA
+
+# Get drives info
+fdisk -l
+
+# Disc size info
+df -h
+
+# Mount usb to directory
+mount /dev/sdb1 /mnt/USB_DATA
+
+# Copy files from a dir
+cp -r /path/to/source/directory /path/to/destination/directory
+
+# Move files from a dir
+mv -r /mnt/usb_drive/dump /mnt/USB_DATA
