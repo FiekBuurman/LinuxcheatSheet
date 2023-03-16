@@ -39,3 +39,33 @@ rm -rfv folderName
 #updates
 apt-get update && apt-get upgrade
 apt-get update && apt-get dist-upgrade
+apt update
+apt -y upgrade
+
+# Install docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+
+#install portainer
+docker run -d \
+--name="portainer" \
+--restart on-failure \
+-p 9000:9000 \
+-p 8000:8000 \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-v portainer_data:/data \
+portainer/portainer-ce:latest
+
+#create guacamole in portainer
+version: "3"
+services:
+  guacamole:
+    image: abesnier/guacamole
+    container_name: guacamole
+    volumes:
+      - postgres:/config
+    ports:
+      - 8194:8080
+volumes:
+  postgres:
+    driver: local
