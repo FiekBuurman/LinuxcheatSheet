@@ -4,6 +4,11 @@ nano /etc/resolv.conf
  - nameserver 127.0.0.1
 pihole updateGravity
 
+#fix errors backing up containers
+nano /etc/vzdump.conf
+# add
+tmpdir: /tmp
+
 # Directory or files info
 ls -a = alles
 ls -ap = alleen files geen dirs
