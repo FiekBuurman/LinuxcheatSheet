@@ -1,0 +1,11 @@
+# scrolling log calls
+pihole -t
+
+apt update
+pihole -u
+
+1.1.1.1         Cloudflare-1
+1.0.0.1         Cloudflare-2
+192.168.2.210   Pi-Hole-Master
+192.168.2.220   Pi-Hole-Slave
+192.168.2.221   Pi-Hole-FTLDNS
