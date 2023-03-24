@@ -75,3 +75,8 @@ services:
 volumes:
   postgres:
     driver: local
+
+
+#fix auth tokens home assistant
+cp -r /config/.storage/auth /config/backup.json && cp -r /config/.storage/auth /config/
+cp -r /config/auth /config/.storage/auth
