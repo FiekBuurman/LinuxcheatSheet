@@ -25,6 +25,6 @@ echo ""
 echo "  Adding bash_aliases to bashrc"
 echo "[[ -f ../root/scripts/.bash_aliases ]] && . ../root/scripts/.bash_aliases" >> $HOME/.bashrc
 echo ""
-sleep 5
+sleep 2
 source ~/.bashrc
 echo "done..."
