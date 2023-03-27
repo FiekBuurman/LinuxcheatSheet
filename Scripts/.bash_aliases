@@ -1,3 +1,4 @@
+echo "start: .bash_aliases"
 # some more aliases
 # restart by source .bashrc or restart
 # restart by . ~/.bash_aliases
@@ -80,4 +81,5 @@ ex ()
 
 # Use Personal Prompt
 source ~/.bash_prompt
+echo "end: .bash_aliases"
 
