@@ -20,6 +20,6 @@ wget https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/Scripts/
 
 echo ""
 echo ""
-echo "  Adding bash_aliases to bashrc"
+echo "  Adding bash_aliases to bashrc ofzo"
 echo "[[ -f ../root/scripts/.bash_aliases ]] && . ../root/scripts/.bash_aliases" >> $HOME/.bashrc
 echo ""
