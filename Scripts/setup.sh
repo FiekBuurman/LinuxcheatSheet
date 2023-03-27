@@ -22,7 +22,9 @@ echo "getting .bash_aliases"
 wget https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/Scripts/.bash_aliases >>setup.log 2>&1
 echo ""
 echo ""
-echo "  Adding bash_aliases to bashrc.."
+echo "  Adding bash_aliases to bashrc"
 echo "[[ -f ../root/scripts/.bash_aliases ]] && . ../root/scripts/.bash_aliases" >> $HOME/.bashrc
 echo ""
+sleep 5
 source ~/.bashrc
+echo "done..."
