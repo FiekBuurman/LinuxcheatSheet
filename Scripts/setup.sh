@@ -13,8 +13,8 @@ cd ../root/scripts >>setup.log 2>&1
 echo "getting .bash_aliases"
 #wget https://raw.githubusercontent.com/nallej/MyJourney/main/BashAddon.sh
 wget https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/Scripts/.bash_aliases >>setup.log 2>&1
-echo "getting .bash_prompt"
-wget https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/Scripts/.bash_prompt >>setup.log 2>&1
+#echo "getting .bash_prompt"
+#wget https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/Scripts/.bash_prompt >>setup.log 2>&1
 #/bin/bash /root/scripts/.bash_aliases
 #/bin/bash /root/scripts/.bash_prompt
 
