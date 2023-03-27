@@ -78,8 +78,4 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
-
-# Use Personal Prompt
-source ~/.bash_prompt
 echo "end: .bash_aliases"
-
