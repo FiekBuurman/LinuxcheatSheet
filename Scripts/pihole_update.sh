@@ -1,5 +1,5 @@
 #! /bin/bash
-touch ~/scripts/pihole_update.log
+#touch ~/scripts/pihole_update.log
 date >~/scripts/pihole_update.log
 echo "Start:" >>~/scripts/pihole_update.log
 
@@ -17,5 +17,5 @@ apt-get autoclean >>~/scripts/pihole_update.log 2>&1
 
 # write to text
 echo  "End Run..." >> ~/scripts/pihole_update.log
-sudo date >> ~/scripts/pihole_update.log
+date >> ~/scripts/pihole_update.log
 exit 
