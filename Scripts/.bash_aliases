@@ -1,4 +1,3 @@
-echo "start: .bash_aliases"
 # some more aliases
 # restart by source .bashrc or restart
 # restart by . ~/.bash_aliases
@@ -78,5 +77,16 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
-source ../root/scripts/.bash_prompt
-echo "end: .bash_aliases"
+
+BRACKET_COLOR="\[\033[38;5;35m\]"
+CLOCK_COLOR="\[\033[38;5;35m\]"
+JOB_COLOR="\[\033[38;5;33m\]"
+PATH_COLOR="\[\033[38;5;33m\]"
+LINE_BOTTOM="\342\224\200"
+LINE_BOTTOM_CORNER="\342\224\224"
+LINE_COLOR="\[\033[38;5;248m\]"
+LINE_STRAIGHT="\342\224\200"
+LINE_UPPER_CORNER="\342\224\214"
+END_CHARACTER="|"
+
+tty -s && export PS1="$LINE_COLOR$LINE_UPPER_CORNER$LINE_STRAIGHT$LINE_STRAIGHT$BRACKET_COLOR[$CLOCK_COLOR\t$BRACKET_COLOR]$LINE_COLOR$LINE_STRAIGHT$BRACKET_COLOR[$JOB_COLOR\j$BRACKET_COLOR]$LINE_COLOR$LINE_STRAIGHT$BRACKET_COLOR[\H:\]$PATH_COLOR\w$BRACKET_COLOR]\n$LINE_COLOR$LINE_BOTTOM_CORNER$LINE_STRAIGHT$LINE_BOTTOM$END_CHARACTER\[$(tput sgr0)\] "
