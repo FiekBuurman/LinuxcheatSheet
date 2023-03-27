@@ -1,3 +1,6 @@
+# set correct time zone
+sudo timedatectl set-timezone Europe/Amsterdam
+
 #read mails
 cat /var/spool/mail/root 
 
