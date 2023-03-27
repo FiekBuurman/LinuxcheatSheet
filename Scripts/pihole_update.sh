@@ -1,4 +1,5 @@
 #! /bin/bash
+touch ../home/scripts/pihole_update.log
 sudo date > ../home/scripts/pihole_update.log
 echo "Start:" >> ../home/scripts/pihole_update.log
 
