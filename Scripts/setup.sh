@@ -27,4 +27,4 @@ echo "[[ -f ../root/scripts/.bash_aliases ]] && . ../root/scripts/.bash_aliases"
 echo ""
 sleep 2
 source ~/.bashrc
-echo "done..."
+echo "done...."
