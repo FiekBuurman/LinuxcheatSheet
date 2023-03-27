@@ -1,1 +1,32 @@
+#read mails
+cat /var/spool/mail/root 
 
+# see jobs
+crontab -l
+
+# edit jobs
+crontab -e
+
+
+  1. create script:
+nano /home/scripts/update.sh
+
+  2. script
+#! /bin/bash
+echo "Start:" >> ../home/scripts/updateScriptLog.txt
+# update
+sudo apt-get update && sudo apt-get upgrade -y
+# remove
+sudo apt-get autoremove && apt-get autoclean
+# update pihole
+/usr/local/bin/pihole -up
+/usr/local/bin/pihole -g
+# write to text
+echo  "Last run" >> ../home/scripts/updateScriptLog.txt
+sudo date >> ../home/scripts/updateScriptLog.txt
+exit
+
+  3. create task:
+crontab -e
+
+1 0 * * * ../home/scripts/update.sh
