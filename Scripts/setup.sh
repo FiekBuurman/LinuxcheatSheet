@@ -1,3 +1,4 @@
+#! /bin/bash
 echo "Starting setup.sh"
 source $HOME/.bashrc
 /bin/rm -f setup.log
