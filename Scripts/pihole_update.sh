@@ -4,10 +4,12 @@ date >~/scripts/pihole_update.log
 echo "Start:" >>~/scripts/pihole_update.log
 
 # update
-apt-get update && apt-get upgrade -y >>~/scripts/pihole_update.log 2>&1
+apt-get update >>~/scripts/pihole_update.log 2>&1
+apt-get upgrade -y >>~/scripts/pihole_update.log 2>&1
 
 # remove
-sudo apt-get autoremove && apt-get autoclean >>~/scripts/pihole_update.log 2>&1
+apt-get autoremove >>~/scripts/pihole_update.log 2>&1
+apt-get autoclean >>~/scripts/pihole_update.log 2>&1
 
 # update pihole
 /usr/local/bin/pihole -up >>~/scripts/pihole_update.log 2>&1
