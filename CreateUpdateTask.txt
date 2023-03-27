@@ -14,6 +14,7 @@ crontab -e
   1. create script:
 mkdir /home/scripts  
 nano /home/scripts/update.sh
+chmod +x update.sh
 
   2. script
 #! /bin/bash
