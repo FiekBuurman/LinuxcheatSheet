@@ -1,4 +1,6 @@
 echo "Starting setup.sh"
+source ~/.bashrc
+sleep 1
 /bin/rm -f setup.log
 /bin/rm -r -f scripts
 /bin/bash $HOME/.bashrc
@@ -19,4 +21,5 @@ echo ""
 echo "  Adding bash_aliases to bashrc"
 echo "[[ -f ../root/scripts/.bash_aliases ]] && . ../root/scripts/.bash_aliases" >> $HOME/.bashrc
 echo ""
-/bin/bash /root/scripts/.bash_aliases
+sleep 2
+source ~/.bashrc
