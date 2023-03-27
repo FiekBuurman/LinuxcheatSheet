@@ -7,5 +7,5 @@ cd ../root/scripts
 #wget https://raw.githubusercontent.com/nallej/MyJourney/main/BashAddon.sh
 wget https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/Scripts/.bash_aliases
 wget https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/Scripts/.bash_prompt
-. .bash_aliases
-. .bash_
+bash .bash_aliases
+bash .bash_
