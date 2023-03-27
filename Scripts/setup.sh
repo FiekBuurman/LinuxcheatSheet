@@ -1,4 +1,7 @@
 echo "Starting setup.sh"
+/bin/rm -f setup.log
+/bin/rm -r -f scripts
+/bin/bash $HOME/.bashrc
 echo "running updates"
 apt update && apt ugrade -y >>setup.log 2>&1
 echo "installing apps"
