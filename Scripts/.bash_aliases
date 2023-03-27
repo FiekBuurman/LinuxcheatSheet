@@ -78,4 +78,5 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
+source ../root/scripts/.bash_prompt
 echo "end: .bash_aliases"
