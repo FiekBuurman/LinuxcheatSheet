@@ -1,6 +1,7 @@
  # Set correct time zone
-
- ```dpkg-reconfigure tzdata ```
+```
+dpkg-reconfigure tzdata 
+```
  
   - -Pick [Europe] - [Brussels]
 
