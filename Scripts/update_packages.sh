@@ -1,21 +1,16 @@
 #! /bin/bash
-#touch ~/scripts/package_update.log
-date >~/scripts/package_update.log
-echo "Start:" >>~/scripts/package_update.log
+log_path = ~/scripts/package_update.log
+echo "Start:" > 
+date >> log_path
 
 # update
-apt-get update >>~/scripts/package_update.log 2>&1
-apt-get upgrade -y >>~/scripts/package_update.log 2>&1
+apt-get update >> log_path 2>&1
+apt-get upgrade -y >> log_path 2>&1
 
 # remove
-apt-get autoremove >>~/scripts/package_update.log 2>&1
-apt-get autoclean >>~/scripts/package_update.log 2>&1
+apt-get autoremove >> log_path 2>&1
+apt-get autoclean >> log_path 2>&1
 
-# update pihole
-/usr/local/bin/pihole -up >>~/scripts/package_update.log 2>&1
-/usr/local/bin/pihole -g >>~/scripts/package_update.log 2>&1
-
-# write to text
-echo  "End Run..." >> ~/scripts/package_update.log
-date >> ~/scripts/package_update.log
+echo  "End Run..." >> log_path
+date >> log_path
 exit 
