@@ -1,6 +1,7 @@
 #! /bin/bash
+#bash <(curl https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/Scripts/update_packages.sh)
 log_path = ~/scripts/package_update.log
-echo "Start:" > 
+echo "Start:" > log_path
 date >> log_path
 
 # update
@@ -13,4 +14,4 @@ apt-get autoclean >> log_path 2>&1
 
 echo  "End Run..." >> log_path
 date >> log_path
-exit 
+exit
