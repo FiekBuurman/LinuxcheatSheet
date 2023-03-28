@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Define the path variable
 log_path=~/scripts/package_update.log
@@ -7,14 +8,17 @@ echo "Start:" > $log_path
 date >> $log_path
 
 # update
-apt-get update >> $log_path 2>&1
-apt-get upgrade -y >> $log_path 2>&1
+sudo apt-get update -q &>> $log_path
+sudo apt-get upgrade -y -q &>> $log_path
 
 # remove
-apt-get autoremove >> $log_path 2>&1
-apt-get autoclean >> $log_path 2>&1
+sudo apt-get autoremove -q &>> $log_path
+sudo apt-get autoclean -q &>> $log_path
 
 # write to text
 echo  "End Run..." >> $log_path
 date >> $log_path
-exit
+
+# exit with a zero status code
+# indicating success
+exit 0
