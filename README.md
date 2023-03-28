@@ -21,6 +21,10 @@ bash <(curl https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/S
 
 # Update Packages script for crontab
  - ``crontab -e``
- ``` 
- 0 1 * * * /usr/bin/curl -s https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/Scripts/update_packages.sh | /bin/bash 
- ```
+``` 
+0 1 * * * /usr/bin/curl -s https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/Scripts/update_packages.sh | /bin/bash 
+```
+if crontab not using nano: 
+```
+export VISUAL=nano; crontab -e
+```
