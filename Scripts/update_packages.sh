@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+#set -e
 
 # Define the path variable
 log_path=~/scripts/package_update.log
