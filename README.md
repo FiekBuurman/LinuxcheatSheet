@@ -8,6 +8,9 @@ dpkg-reconfigure tzdata
 
 - run after setup:
 ```
+apt update && apt upgrade -y
+```
+```
 bash <(curl https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/Scripts/setup.sh)
 ```
  - run ``. ~/.bashrc``
