@@ -21,6 +21,8 @@ bash <(curl https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/S
 ``` 
 15 0 * * * /usr/bin/curl -s https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/Scripts/pihole_update.sh | /bin/bash 
 ```
+Check logs via: ``cat /root/scripts/pihole_update.log``
+Check mail via: ``cat var/mail/root``
 
 # Update Packages script for crontab
  - ``crontab -e``
