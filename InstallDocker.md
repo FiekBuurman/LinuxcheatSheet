@@ -40,6 +40,7 @@ apt-get install docker-ce docker-ce-cli containerd.io
 ```
 systemctl status docker
 ```
+```
 apt install cifs-utils docker-compose
 ```
  - check that docker is functioning properly
