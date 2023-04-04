@@ -81,3 +81,6 @@ volumes:
 cp -r /config/.storage/auth /config/backup.json && cp -r /config/.storage/auth /config/
 cp -r /config/auth /config/.storage/auth
 grep -rl "buurmans.duckdns" /config
+
+
+sudo apt-get install qemu-guest-agent
