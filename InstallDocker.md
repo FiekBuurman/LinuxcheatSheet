@@ -33,6 +33,7 @@ echo \
 ```
 apt-get update
 ```
+```
 apt-get install docker-ce docker-ce-cli containerd.io
 ```
  - verify:
@@ -41,7 +42,7 @@ systemctl status docker
 ```
 apt install cifs-utils docker-compose
 ```
-
-
-#check that docker is functioning properly
+ - check that docker is functioning properly
+```
 docker run hello-world
+```
