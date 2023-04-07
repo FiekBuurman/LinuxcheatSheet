@@ -1,9 +1,3 @@
-```
-```
-```
-```
-```
-```
 # https://wiki.alpinelinux.org/wiki/Docker#Docker_rootless
 ```
 apk add docker
