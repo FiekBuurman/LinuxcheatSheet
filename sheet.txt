@@ -81,3 +81,13 @@ volumes:
 cp -r /config/.storage/auth /config/backup.json && cp -r /config/.storage/auth /config/
 cp -r /config/auth /config/.storage/auth
 grep -rl "buurmans.duckdns" /config
+
+
+sudo apt-get install qemu-guest-agent
+
+ - create vm
+ - select no disc
+ - x32 & eufi
+ - upload qcow
+ - run next command make sure the 247 is the correct ID
+qm importdisk 247 /root/haos_ova-9.5.qcow2 local-lvm --format qcow2
