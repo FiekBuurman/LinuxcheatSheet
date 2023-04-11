@@ -47,3 +47,8 @@ apt install cifs-utils docker-compose
 ```
 docker run hello-world
 ```
+
+```
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+```

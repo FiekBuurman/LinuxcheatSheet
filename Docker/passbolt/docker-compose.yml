@@ -1,10 +1,4 @@
 version: '3'
-
-# Customize with the environment variables in the .env file included in this repo
-
-
-# Cloudflare Tunnel is optional, but it is an easy secure solution for external access that also provides certs
-# The value you set for APP_FULL_BASE_URL will have to resolve properly to the passbolt server.
 services:
   #Database for Passbolt
   db:
