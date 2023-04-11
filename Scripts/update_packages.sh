@@ -10,6 +10,7 @@ date >> $log_path
 # update
 sudo apt-get update -q &>> $log_path
 sudo apt-get upgrade -y -q &>> $log_path
+sudo apt-get dist-upgrade -y -q &>> $log_path
 
 # remove
 sudo apt-get autoremove -q &>> $log_path
