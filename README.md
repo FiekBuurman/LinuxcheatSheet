@@ -33,3 +33,8 @@ if crontab not using nano:
 ```
 export VISUAL=nano; crontab -e
 ```
+
+# Install Docker + Compose
+```
+bash <(curl https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/Docker/auto_setup_docker_debian.sh)
+```
