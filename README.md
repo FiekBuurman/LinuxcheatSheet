@@ -18,7 +18,7 @@ dpkg-reconfigure -f noninteractive tzdata
 apt update && apt upgrade -y && apt dist-upgrade -y
 ```
 ```
-apt install curl -y \
+apt install curl -y /
 bash <(curl https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/Scripts/setupV2.sh)
 ```
 ```
