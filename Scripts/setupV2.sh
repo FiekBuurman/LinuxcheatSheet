@@ -1,4 +1,12 @@
 #! /bin/bash
+
+set -e
+
+if [ "$(id -u)" != "0" ]; then
+    echo "This script must be run as root." >&2
+    exit 1
+fi
+
 print_message() {
     echo -e "\e[1m\e[44m\e[97m $1 \e[0m"
 }
@@ -19,7 +27,7 @@ apt-get install ca-certificates curl gnupg bat sudo -y
 print_message "done"
 
 print_message "Some house cleaning" 
-apt autoremove && apt autoclean
+apt autoremove -y && apt autoclean -y
 print_message "done" 
 
 print_message "getting .bash_aliases" 
@@ -39,8 +47,14 @@ echo "[[ -f ../root/scripts/.bash_aliases ]] && . ../root/scripts/.bash_aliases"
 echo ""
 sleep 2
 source $HOME/.bashrc
-# check this next time if it's auto loads the bashrc
-cd ..
-. ~/.bashrc
+
 print_message "done" 
+
+for i in {10..1}; do
+    echo -ne "\e[1m\e[44m\e[97m System will reboot in $i seconds. Press Ctrl-C to cancel.\e[0m\r"
+    sleep 1
+done
+echo -e "System will reboot now.\n"
+shutdown -r now
+
 #### END SCRIPT ###
