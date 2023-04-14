@@ -3,6 +3,7 @@
 dpkg-reconfigure tzdata 
 ```
 - Pick [Europe] - [Brussels]
+
 ```
 echo "tzdata tzdata/Areas select Europe" | debconf-set-selections
 echo "tzdata tzdata/Zones/Europe select Brussels" | debconf-set-selections
