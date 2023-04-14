@@ -48,6 +48,8 @@ echo ""
 sleep 2
 #source $HOME/.bashrc
 
+echo -e "Welkom bij: \n             \e[34m░█▀▄░█░█░█░█░█▀▄░█▄█░▄▀▄░▄▀▄░▄▀▀\n             ░█▀▄░█░█░█░█░█▀▄░█░█░█▀█░█░█░▀▀█\n             ░▀▀░░▀▀▀░▀▀▀░▀░▀░▀░▀░▀░▀░▀░▀░▀▀\e[0m" > /etc/motd
+
 print_message "done" 
 
 for i in {10..1}; do
