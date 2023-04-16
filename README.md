@@ -50,3 +50,6 @@ export VISUAL=nano; crontab -e
 bash <(curl https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/Docker/auto_setup_docker_debian.sh)
 ```
 
+ - container configs:  /etc/pve/lxc
+ - VM configs:         /etc/pve/qemu-server
+ - CT and VM drives    /mnt/pve/vm_and_ct_ssd
