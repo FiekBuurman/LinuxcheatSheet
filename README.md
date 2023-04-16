@@ -33,3 +33,7 @@ if crontab not using nano:
 ```
 export VISUAL=nano; crontab -e
 ```
+
+ - container configs:  /etc/pve/lxc
+ - VM configs:         /etc/pve/qemu-server
+ - CT and VM drives    /mnt/pve/vm_and_ct_ssd

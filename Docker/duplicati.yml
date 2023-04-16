@@ -1,0 +1,23 @@
+version: "2.1"
+services:
+  duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    container_name: duplicati
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/U
+      - CLI_ARGS= #optional
+    volumes:
+      - /home/duplicati/config:/config
+      - /home/backups:/backups
+      - /home/source:/source
+    ports:
+      - 8200:8200
+    restart: unless-stopped
+
+
+#pct set 214 -mp0 /etc/pve/lxc,mp=/backups/lxc
+#pct set 216 -mp0 /etc/pve/lxc,mp=/backups/lxc
+#pct set 216 -mp1 /etc/pve/qemu-server,mp=/etc/pve/qemu-server
+#pct set 216 -mp2 /mnt/pve/vm_and_ct_ssd,mp=/mnt/pve/vm_and_ct_ssd

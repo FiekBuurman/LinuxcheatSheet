@@ -1,3 +1,14 @@
+#sudo mount -t nfs 192.168.2.253:/volume1/app_backups /mnt/app_backup
+#pct set 212 -mp0 /mnt/app_backup,mp=/mnt/app_backup
+# on client sudo chmod 777 /mnt/app_backup
+
+# conf files: /etc/pve/lxc
+# discs: /mnt/USB_DATA/images  
+# container configs:  /etc/pve/lxc
+# VM configs:         /etc/pve/qemu-server
+# CT and VM drives    /mnt/pve/vm_and_ct_ssd
+
+
 #!/bin/bash
 set -e
 
@@ -26,16 +37,7 @@ docker exec -i $MYSQL__CONTAINER_ID bash -c \
   > $BACKUP_DIR/temp/backup.sql
 
 print_message "Creating backup tar in /mnt/app_backup"
-tar -czvf /mnt/app_backup/passbolt_backup_$(date +'%Y%m%d%H%M%S').tar.gz \
+tar -czvf /mnt/app_backup/passbolt/passbolt_backup_$(date +'%Y%m%d%H%M%S').tar.gz \
     -C $BACKUP_DIR/temp .
 
 print_message "Backup complete"
-
-
-#print_message "Copying backup file to NFS share"
-#scp $BACKUP_DIR/passbolt_backup_$(date +'%Y%m%d%H%M%S').tar.gz \
-#    user@nfs-server:"$NFS_SHARE"
-
-#sudo mount -t nfs 192.168.2.253:/volume1/app_backups /mnt/app_backup
-#pct set 212 -mp0 /mnt/app_backup,mp=/mnt/app_backup
-# on client sudo chmod 777 /mnt/app_backup
