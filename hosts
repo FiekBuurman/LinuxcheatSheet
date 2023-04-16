@@ -16,9 +16,10 @@
 192.168.2.201   Zevercloud
 192.168.2.202   Proxmox-Backup-server
 192.168.2.210   Pi-hole-master
-192.168.2.220   Pi-hole-slave
+192.168.2.211   Heimdall
+192.168.2.212   Passbolt
+192.168.2.213   Cloudflare Tunnels
 192.168.2.230   Docker-CT
-192.168.2.231   Docker-LCX-Template
 192.168.2.250   Home-assistant
 192.168.2.253   Nas
 192.168.2.254   KPN-Modem
