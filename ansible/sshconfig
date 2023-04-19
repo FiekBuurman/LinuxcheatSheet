@@ -1,0 +1,61 @@
+# Read more about SSH config files: https://linux.die.net/man/5/ssh_config
+
+Host Pi-hole-main
+    HostName 192.168.2.210
+    User buurmans
+	RequestTTY no
+	
+Host Heimdall
+	Hostname 192.168.2.211
+    User buurmans
+	RequestTTY no
+		
+Host Passbolt
+    HostName 192.168.2.212
+    User buurmans
+	RequestTTY no
+	
+Host Cloudflare
+    HostName 192.168.2.213
+    User buurmans
+	RequestTTY no
+
+Host NTP
+    HostName 192.168.2.214
+    User buurmans
+	RequestTTY no
+	
+Host Pi-hole-slave
+    HostName 192.168.2.220
+    User buurmans
+	RequestTTY no
+	
+Host VS-Code
+    HostName 192.168.2.221
+    User buurmans
+	RequestTTY no
+
+Host Ansible
+    HostName 192.168.2.222
+    User buurmans
+	RequestTTY no
+    
+Host test1
+    HostName 192.168.2.230
+    User buurmans
+	RequestTTY no
+
+Host test2
+    HostName 192.168.2.231
+    User buurmans
+	RequestTTY no
+
+Host test3
+    HostName 192.168.2.232
+    User buurmans
+	RequestTTY no
+	
+Host Home-Assistant
+    HostName 192.168.2.250
+    User buurmans
+	RequestTTY no
