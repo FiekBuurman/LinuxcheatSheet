@@ -53,3 +53,15 @@ bash <(curl https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/main/D
  - container configs:  /etc/pve/lxc
  - VM configs:         /etc/pve/qemu-server
  - CT and VM drives    /mnt/pve/vm_and_ct_ssd
+
+# fix ssh into containers
+```
+echo "PermitRootLogin yes" > /etc/ssh/sshd_config.d/rootlogin.conf && systemctl restart sshd.service
+```
+
+# login / motd
+# https://www.putorius.net/custom-motd-login-screen-linux.html
+```
+sudo apt-get install neofetch
+sudo bash -c $'echo "neofetch" >> /etc/profile.d/mymotd.sh && chmod +x /etc/profile.d/mymotd.sh'
+```
