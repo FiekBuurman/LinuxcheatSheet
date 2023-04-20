@@ -1,4 +1,9 @@
 # Read more about SSH config files: https://linux.die.net/man/5/ssh_config
+# c:\Users\fiekb\.ssh\config
+Host Proxmox
+    HostName 192.168.2.200
+    User buurmans
+	RequestTTY no
 
 Host Pi-hole-main
     HostName 192.168.2.210
