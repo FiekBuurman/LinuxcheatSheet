@@ -6,3 +6,7 @@ ssh-keygen -t ed25519 -C "USERNAME default"
 ```
 ssh-copy-id -i  /home/USERNAME/.ssh/id_ed25519.pub 10.10.10.10
 ```
+
+ssh-copy-id -i  ~/.ssh/ansible.pub 192.168.2.200
+
+C:\Progs\develop\LinuxcheatSheet\Ansible
