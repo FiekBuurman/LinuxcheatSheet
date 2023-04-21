@@ -1,14 +1,16 @@
-
 remove stuff from motd
 - echo ! > /etc/motd
+
 remove other motd files
 - rm /etc/update-motd.d/*
+
 create custom motd, past in your ASCII
 - sudo nano /etc/update-motd.d/1-buurmanslogin
+
 make it executable
 - sudo chmod +x /etc/update-motd.d/1-BuurmanLoginText
-`
 
+```
 #!/bin/bash
 
 # Define the colors in the rainbow
