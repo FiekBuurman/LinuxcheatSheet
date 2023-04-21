@@ -8,7 +8,7 @@ create custom motd, past in your ASCII
 - sudo nano /etc/update-motd.d/1-buurmanslogin
 
 make it executable
-- sudo chmod +x /etc/update-motd.d/1-BuurmanLoginText
+- sudo chmod +x /etc/update-motd.d/1-buurmanslogin
 
 ```
 #!/bin/bash
