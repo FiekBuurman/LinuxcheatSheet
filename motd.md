@@ -10,6 +10,10 @@ create custom motd, past in your ASCII
 make it executable
 - sudo chmod +x /etc/update-motd.d/1-buurmanslogin
 
+If neofetch is installed:
+- sudo apt-get install neofetch
+- rm /etc/profile.d/mymotd.sh -y
+
 ```
 #!/bin/bash
 
