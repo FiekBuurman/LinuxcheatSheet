@@ -14,7 +14,7 @@
 192.168.2.101   Fiek-Phone
 192.168.2.200   Proxmox
 192.168.2.201   Zevercloud
-192.168.2.202   Proxmox-Backup-server
+192.168.2.202   devops
 192.168.2.210   Pi-hole-master
 192.168.2.211   Heimdall
 192.168.2.212   Passbolt
