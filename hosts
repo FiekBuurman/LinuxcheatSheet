@@ -15,12 +15,13 @@
 192.168.2.200   Proxmox
 192.168.2.201   Zevercloud
 192.168.2.202   devops
-192.168.2.210   Pihole-master
+192.168.2.210   Pi-hole-master
 192.168.2.211   Heimdall
 192.168.2.212   Passbolt
 192.168.2.213   Cloudflare-tunnels
 192.168.2.215   Uptime-kuma
-192.168.2.220   Pihole-slave
+192.168.2.219   Pi-alert
+192.168.2.220   Pi-hole-slave
 192.168.2.230   Docker-CT
 192.168.2.250   Home-assistant
 192.168.2.253   Nas
