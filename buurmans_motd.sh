@@ -26,7 +26,7 @@ art="
 ******************************************************
 "
 
-# Split the art into lines
+# Split the art into lines...
 IFS=$'\n' read -d '' -ra lines <<< "$art"
 
 # Loop through each line and colorize it
