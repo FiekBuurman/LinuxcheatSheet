@@ -22,7 +22,7 @@
 192.168.2.212   Passbolt
 192.168.2.213   Cloudflare-tunnels
 192.168.2.215   Uptime-kuma
-192.168.2.219   Pi-alert
+192.168.2.218   Pi-alert
 192.168.2.220   Pi-hole-slave
 192.168.2.230   Docker-CT
 192.168.2.250   Home-assistant
