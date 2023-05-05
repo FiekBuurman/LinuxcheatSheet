@@ -1,0 +1,51 @@
+.tags-container {
+    flex: 1;
+    background-color: rgba(255,255,255,0.4);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+ }
+ 
+ .tags-title {
+     color: #fff;
+     text-transform: capitalize;
+     margin: 20px
+ }
+ 
+ @media (max-width: 680px) {
+     #sortable {
+          justify-content: center !important;
+     }
+    .tags-container {
+         display: flex;
+         flex-direction: column;
+     }
+     #config-buttons {
+         display: none;
+     }
+ }
+ 
+ /* Reference: https://www.reddit.com/r/selfhosted/comments/nzw76z/i_went_a_bit_overboard_customising_heimdall/ */
+ 
+ #config-buttons {
+   bottom: 50%;
+   transform: translateY(50%);
+   border-top-left-radius: 10px;
+   border-bottom-left-radius: 10px;
+   box-shadow: rgba(255, 255, 255, 0.1) -1px 1px 1px 0, rgba(255, 255, 255, 0.1) 0 -1px 1px 0,
+     rgba(0, 0, 0, 0.1) -1px 0 20px 5px;
+   background-color: rgba(40, 40, 40, 0.25);
+   backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
+ }
+ #config-buttons a {
+   background: none;
+ }
+ #config-buttons a svg {
+   transition: all 0.1s ease-in-out;
+   color: rgba(255, 255, 255, 0.5);
+ }
+ #config-buttons a:hover svg {
+   transform: scale(1.1);
+   color: rgba(255, 255, 255, 0.95);
+ }

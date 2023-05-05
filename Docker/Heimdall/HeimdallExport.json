@@ -1,0 +1,98 @@
+[
+  {
+    "title": "Home Assistant",
+    "colour": "#05A",
+    "url": "https://buurmans.info/",
+    "description": "{\"enabled\":\"1\",\"override_url\":\"http:\\/\\/192.168.2.250:8123\",\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIyNGNkYzE1ZGQ5Y2E0ZDRkOGUxNTJmMmNmMmUwMGJkYyIsImlhdCI6MTY4MTI4NzE0MCwiZXhwIjoxOTk2NjQ3MTQwfQ.ndLpwXCek4SSkbLpB_jLrTgtJk0GrLxR-Iziyu1PueY\",\"first_stat_label\":\"Lights\",\"first_stat_template\":\"{{ states('sensor.number_of_lights_on')}}\\/{{states('sensor.total_number_of_lights')}}\",\"second_stat_label\":\"Temp\",\"second_stat_template\":\"{{ state_attr('climate.thermostat', 'current_temperature') }} \\u00b0C\"}",
+    "appid": "5c81a4f5ee23ebffa0724a22a040c54e6cb9d7c5",
+    "appdescription": "Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts."
+  },
+  {
+    "title": "Portainer",
+    "colour": "#161b1f",
+    "url": "https://docker.buurmans.info/",
+    "description": "{\"enabled\":\"1\",\"dataonly\":\"1\",\"override_url\":\"http:\\/\\/192.168.2.230:9000\",\"username\":\"buurmans\",\"password\":\"NsnsQcaaCsMillVH0NlW\",\"ignore_tls\":\"1\"}",
+    "appid": "07b796b3a10eaa8b6f485ed2379187a39400b459",
+    "appdescription": "Portainer is a simple management solution for Docker. Easily manage your Docker hosts and Docker Swarm clusters via Portainer web user interface."
+  },
+  {
+    "title": "Pi-hole Main",
+    "colour": "#FAA",
+    "url": "https://piholemain.buurmans.info/admin/",
+    "description": "{\"enabled\":\"1\",\"dataonly\":\"1\",\"override_url\":\"http:\\/\\/192.168.2.210\\/admin\\/\",\"apikey\":\"e838b83d9aeeef5f60917fb6b6347c6a25d33193f5b93367851be574242daf97\"}",
+    "appid": "b89920409bdce40e08ba1023480b0546061cd577",
+    "appdescription": "Pi-hole is a Linux network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole, intended for use on a private network."
+  },
+  {
+    "title": "Pi-hole Slave",
+    "colour": "#FAA",
+    "url": "https://piholeslave.buurmans.info/admin/",
+    "description": "{\"enabled\":\"1\",\"dataonly\":\"1\",\"override_url\":\"http:\\/\\/192.168.2.220\\/admin\",\"apikey\":\"e838b83d9aeeef5f60917fb6b6347c6a25d33193f5b93367851be574242daf97\"}",
+    "appid": "b89920409bdce40e08ba1023480b0546061cd577",
+    "appdescription": "Pi-hole is a Linux network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole, intended for use on a private network."
+  },
+  {
+    "title": "Proxmox",
+    "colour": "#EA7",
+    "url": "https://proxmox.buurmans.info/",
+    "description": "{\"enabled\":\"1\",\"override_url\":\"https:\\/\\/192.168.2.200:8006\",\"nodes\":null,\"ignore_tls\":\"0\",\"token_id\":\"hasensor@pve!TokenForHeidall\",\"token_value\":\"24f77794-6193-4ace-bb4a-842f930d496f\"}",
+    "appid": "391f2b7f3fe853e1ea09723eeafc354fa291ab48",
+    "appdescription": "Proxmox Virtual Environment is an open-source server virtualization environment. It allows deployment and management of virtual machines and containers"
+  },
+  {
+    "title": "Synology",
+    "colour": "#AAF",
+    "url": "https://nas.buurmans.info/",
+    "description": null,
+    "appid": "8521f6e426ad621f27a6b48be57a3c6056c9cfd3",
+    "appdescription": "Synology is a popular NAS appliance"
+  },
+  {
+    "title": "Guacamole",
+    "colour": "#050",
+    "url": "http://192.168.2.230:8194",
+    "description": null,
+    "appid": "1c772e7ff575c76274b2ab9f90d82b428029b50b",
+    "appdescription": "Apache Guacamole is a clientless remote desktop gateway. It supports standard protocols like VNC, RDP, and SSH."
+  },
+  {
+    "title": "GitHub",
+    "colour": "#fafbfc",
+    "url": "https://github.com/FiekBuurman/LinuxcheatSheet",
+    "description": null,
+    "appid": "64b2b6d12bfe4baae7dad3d018f8cbf6b0e7a044",
+    "appdescription": "GitHub brings together the world's largest community of developers to discover, share, and build better software."
+  },
+  {
+    "title": "Passbolt",
+    "colour": "#161b1f",
+    "url": "https://passbolt.buurmans.info",
+    "description": null,
+    "appid": "null",
+    "appdescription": null
+  },
+  {
+    "title": "Uptime Kuma",
+    "colour": "#161b1f",
+    "url": "https://uptime-kuma.buurmans.info",
+    "description": null,
+    "appid": "366c6646eedab83cc4b349f198424d2291cbfa76",
+    "appdescription": "It is a self-hosted monitoring tool like \"Uptime Robot\"."
+  },
+  {
+    "title": "Pi.Alert",
+    "colour": "#161b1f",
+    "url": "https://pialert.buurmans.info",
+    "description": null,
+    "appid": "e7780295cba962fe2c4a2aa84c82794611b8942b",
+    "appdescription": "WIFI / LAN intruder detector.\r\n\r\nScan the devices connected to your WIFI / LAN and alert you the connection of unknown devices. It also warns if a \"always connected\" devices disconnects."
+  },
+  {
+    "title": "Code server",
+    "colour": "#fafbfc",
+    "url": "https://vscode.buurmans.info/",
+    "description": null,
+    "appid": "9eebc5964efd0e6656fe4f143474988bde6c9ef3",
+    "appdescription": "code-server is VS Code running on a remote server, accessible through the browser."
+  }
+]
