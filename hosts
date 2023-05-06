@@ -26,5 +26,6 @@
 192.168.2.220   Pi-hole-CT-Slave
 192.168.2.230   Docker-CT
 192.168.2.250   Home-assistant
+192.168.2.251   CT-template
 192.168.2.253   Nas
 192.168.2.254   KPN-modem
