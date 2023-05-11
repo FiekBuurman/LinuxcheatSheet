@@ -17,7 +17,7 @@
 192.168.2.200   Proxmox
 192.168.2.201   Zevercloud
 192.168.2.202   devops
-192.168.2.203   jenkins
+192.168.2.203   cronicle
 192.168.2.210   Pi-hole-CT-Main
 192.168.2.211   Heimdall
 192.168.2.212   Passbolt
