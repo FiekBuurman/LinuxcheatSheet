@@ -32,7 +32,7 @@ print_message "apt update"
 sudo apt-get update
 
 print_message "Installing Docker"
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 print_message "Running Hello-World test"
 sudo docker run hello-world
