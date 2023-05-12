@@ -37,4 +37,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 print_message "Running Hello-World test"
 sudo docker run hello-world
 sudo docker ps -a
-
+print_message "stop all docker containers"
+docker stop $(docker ps -a -q)
+print_message "remove all docker containers"
+docker rm $(docker ps -a -q)
