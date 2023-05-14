@@ -1,0 +1,17 @@
+---
+version: "2.1"
+services:
+  sabnzbd:
+    image: lscr.io/linuxserver/sabnzbd:latest
+    container_name: sabnzbd
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels
+    volumes:
+      - /home/buurmans/docker/sabnzbd/config:/config
+      - /home/buurmans/downloads/complete:/downloads
+      - /home/buurmans/downloads/incomplete:/incomplete-downloads
+    ports:
+      - 8080:8080
+    restart: unless-stopped
