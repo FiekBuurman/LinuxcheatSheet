@@ -1,0 +1,19 @@
+---
+version: "2.1"
+services:
+  duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    container_name: duplicati
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels      
+    volumes:
+      - /home/buurmans/docker/duplicati/config:/config
+      - /home/buurmans/backups:/backups
+      - /home/buurmans/:/source
+    ports:
+      - 8200:8200
+    restart: unless-stopped
+
+#pct set 216 -mp1 /mnt/app_backup,mp=/home/buurmans/backups
