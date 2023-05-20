@@ -1,35 +1,7 @@
 ---
 version: '3'
 services:
-  file-browser:
-    image: filebrowser/filebrowser:latest
-    container_name: file-browser
-    user: 1000:1000
-    ports:
-      - 8081:80
-    volumes:
-      - /home/buurmans/:/srv
-      # manually make the database.db
-      # touch /home/buurmans/docker/filebrowser/database.db
-      - /home/buurmans/docker/filebrowser/database.db:/database.db
-    restart: unless-stopped
-    security_opt:
-      - no-new-privileges:true
 
-  sabnzbd:
-    image: lscr.io/linuxserver/sabnzbd:latest
-    container_name: sabnzbd
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Brussels
-    volumes:
-      - /home/buurmans/docker/sabnzbd/config:/config
-      - /home/buurmans/share/downloads/complete:/downloads
-      - /home/buurmans/share/downloads/incomplete:/incomplete-downloads
-    ports:
-      - 8080:8080
-    restart: unless-stopped
 
   jellyfin:
     image: lscr.io/linuxserver/jellyfin:latest
