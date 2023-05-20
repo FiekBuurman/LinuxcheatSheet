@@ -22,8 +22,10 @@
 192.168.2.211   Heimdall
 192.168.2.212   Passbolt
 192.168.2.213   Cloudflare-tunnels
+192.168.2.214   nextcloud
 192.168.2.215   Uptime-kuma
 192.168.2.216   mediacenter
+192.168.2.217   mariadb
 192.168.2.218   Pi-alert
 192.168.2.219   sabnzbd
 192.168.2.220   Pi-hole-CT-Slave
