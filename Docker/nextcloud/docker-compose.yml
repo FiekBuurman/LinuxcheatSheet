@@ -1,0 +1,18 @@
+---
+version: "2.1"
+services:
+  nextcloud:
+    image: lscr.io/linuxserver/nextcloud:latest
+    container_name: nextcloud
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels
+    volumes:
+      - /home/buurmans/docker/nextcloud/config:/config
+      - /home/buurmans/share/clouddrive:/data
+    ports:
+      - 443:443
+    restart: unless-stopped
+
+# pct set 214 -mp0 /mnt/pve/usbdrive/share,mp=/home/buurmans/share

@@ -1,0 +1,20 @@
+---
+version: "2.1"
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: "Europe/Brussels"
+      MYSQL_RANDOM_ROOT_PASSWORD: "$ROOT_ACCESS_PASSWORD"
+      MYSQL_DATABASE: "$MYSQL_DATABASE"
+      MYSQL_USER: "$MYSQL_USER"
+      MYSQL_PASSWORD: "$MYSQL_PASSWORD"
+    volumes:
+      - /home/buurmans/docker/mariadb/data:/var/lib/mysql
+      - /home/buurmans/docker/mariadb/config:/config
+    ports:
+      - 3306:3306
+    restart: unless-stopped
