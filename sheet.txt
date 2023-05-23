@@ -102,3 +102,8 @@ pct set 212 -mp0 /mnt/pve/usbdrive/share,mp=/home/buurmans/share
 ```
 rsync --progress -r /mnt/usb_drive/share/ /mnt/pve/usbdrive/share/
 ```
+
+check disc beeing used:
+fdisk -l
+fdisk -l /dev/sdb
+cfdisk /dev/sdb
