@@ -1,0 +1,35 @@
+---
+version: '3'
+services:
+ #pct set 236 -mp0 /mediadisc/shared,mp=/home/buurmans/share
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels
+    volumes:
+      - /home/buurmans/docker/jellyfin/lib/:/config
+      - /home/buurmans/share/tvshows:/data/tvshows
+      - /home/buurmans/share/movies:/data/movies
+      - /home/buurmans/share/music:/data/music
+    ports:
+      - 8096:8096
+    restart: unless-stopped
+
+  navidrome:
+    image: deluan/navidrome:latest
+    container_name: navidrome
+    user: 1000:1000
+    ports:
+      - "4533:4533"
+    restart: unless-stopped
+    environment:
+      ND_SCANSCHEDULE: 1h
+      ND_LOGLEVEL: info  
+      ND_SESSIONTIMEOUT: 24h
+      ND_BASEURL: ""
+    volumes:
+      - "/home/buurmans/docker/navidrome/data:/data"
+      - "/home/buurmans/share/music:/music:ro"
