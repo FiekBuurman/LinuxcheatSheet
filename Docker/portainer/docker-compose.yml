@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels
+    ports:
+      - 9000:9000
+      - 8000:8000
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/buurmans/docker/portainer/data:/data
+
+
+
+# docker run -d \
+# --name="portainer" \
+# --restart on-failure \
+# -p 9000:9000 \
+# -p 8000:8000 \
+# -v /var/run/docker.sock:/var/run/docker.sock \
+# -v portainer_data:/data \
+# portainer/portainer-ce:latest
+

@@ -33,3 +33,32 @@ services:
     volumes:
       - "/home/buurmans/docker/navidrome/data:/data"
       - "/home/buurmans/share/music:/music:ro"
+
+  heimdall:
+    image: lscr.io/linuxserver/heimdall:latest
+    container_name: heimdall
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels
+    volumes:
+      - /home/buurmans/docker/heimdall/config:/config
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
+  file-browser:
+    image: filebrowser/filebrowser:latest
+    container_name: file-browser
+    user: 1000:1000
+    ports:
+      - 8081:80
+    volumes:
+      - /home/buurmans/:/srv
+      # manually make the database.db & .filebrowser.json
+      # touch /home/buurmans/docker/filebrowser/database.db
+      - /home/buurmans/docker/filebrowser/database.db:/database.db
+      #- /home/buurmans/docker/filebrowser/.filebrowser.json:/.filebrowser.json
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true      
