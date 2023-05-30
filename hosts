@@ -17,7 +17,6 @@
 192.168.2.200   Proxmox
 192.168.2.201   Zevercloud
 192.168.2.202   devops
-;192.168.2.203   cronicle
 192.168.2.210   Pi-hole-CT-Main
 192.168.2.211   Heimdall
 192.168.2.212   Passbolt
@@ -29,6 +28,7 @@
 192.168.2.218   Pi-alert
 192.168.2.219   sabnzbd
 192.168.2.220   Pi-hole-CT-Slave
+192.168.2.221   plex
 192.168.2.230   promox-tower
 192.168.2.250   Home-assistant
 192.168.2.251   CT-template
