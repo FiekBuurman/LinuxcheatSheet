@@ -96,7 +96,8 @@ qm importdisk 247 /root/haos_ova-9.5.qcow2 local-lvm --format qcow2
 sudo chmod -R 777 /var/DirectoryName
 
 mount usb shares to container:
-pct set 212 -mp0 /mnt/pve/usbdrive/share,mp=/home/buurmans/share
+pct set 221 -mp0 /mnt/pve/usbdrive/share,mp=/home/buurmans/share
+pct set 221 -mp1 /mnt/app_backup,mp=/home/buurmans/backups
 
 - move content with progress
 ```
