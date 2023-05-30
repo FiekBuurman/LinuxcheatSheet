@@ -65,3 +65,10 @@ echo "PermitRootLogin yes" > /etc/ssh/sshd_config.d/rootlogin.conf && systemctl 
 sudo apt-get install neofetch
 sudo bash -c $'echo "neofetch" >> /etc/profile.d/mymotd.sh && chmod +x /etc/profile.d/mymotd.sh'
 ```
+
+# fixing mounted drive
+ - on promox make sure the drive is mounted:
+``` mount -t nfs 192.168.2.253:/volume1/app_backups /mnt/app_backup ```
+ - to mount the container aswell, run this on the proxmox host:
+```pct set 202 -mp0 /mnt/app_backup,mp=/mnt/app_backup```
+ - fix rights if needed: ```chmod 777 /mnt/app_backup```
