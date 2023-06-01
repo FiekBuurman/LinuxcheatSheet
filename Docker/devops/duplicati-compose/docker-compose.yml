@@ -1,0 +1,22 @@
+---
+version: "2.1"
+services:
+  duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    container_name: duplicati
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels      
+    volumes:
+      - /home/buurmans/docker/duplicati/config:/config
+      - /mnt/app_backup/duplicati/devops/:/app_backup_on_nas
+      - /home/buurmans:/buurmans_home_dir
+      - /backups/:/backups_from_ansible_backup_play
+    ports:
+      - 8200:8200
+    restart: unless-stopped
+
+#sudo mount -t nfs 192.168.2.253:/volume1/app_backups /mnt/app_backup
+#pct set 202 -mp0 /mnt/app_backup,mp=/mnt/app_backup"
+# on client sudo chmod 777 /mnt/app_backup
