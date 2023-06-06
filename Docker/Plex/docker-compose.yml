@@ -16,6 +16,7 @@ services:
       - /home/buurmans/share/tvshows:/tv
       - /home/buurmans/share/movies:/movies
       - /home/buurmans/share/music:/music
+      - /home/buurmans/share/photos:/photos
       - /home/buurmans/docker/plex/transcode:/transcode
     restart: unless-stopped
     
