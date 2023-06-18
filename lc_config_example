@@ -1,0 +1,17 @@
+boot: order=scsi0;ide2;net0
+cores: 4
+ide2: local:iso/TrueNAS-13.0-U5.1.iso,media=cdrom,size=1022804K
+memory: 8192
+meta: creation-qemu=7.2.0,ctime=1687007147
+name: truenas
+net0: virtio=2A:F2:17:61:CC:8C,bridge=vmbr0,firewall=1
+numa: 0
+onboot: 1
+ostype: l26
+scsi0: vmdrive:vm-231-disk-0,iothread=1,size=32G
+scsi1: /dev/disk/by-id/ata-ST31000528AS_5VP3QXDE,size=976762584K,serial=5VP3QXDE
+scsi2: /dev/disk/by-id/ata-ST31000528AS_6VP2TWMV,size=976762584K,serial=6VP2TWMV
+scsihw: virtio-scsi-single
+smbios1: uuid=7324135c-f5c9-4d74-b999-68db9991c594
+sockets: 1
+vmgenid: 4b74aeed-ba40-47cf-96c0-7ed5d36574c6
