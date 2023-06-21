@@ -1,0 +1,16 @@
+#https://github.com/jlesage/docker-handbrake
+---
+version: '3'
+services:
+  handbrake:
+    image: jlesage/handbrake:latest
+    ports:
+      - 5800:5800
+    volumes:
+      - /home/buurmans/docker/handbrake/appdata:/config:rw
+      - /home/buurmans/docker/handbrake/storage:/storage:ro
+      - /home/buurmans/docker/handbrake/media/watch:/watch:rw
+      - /home/buurmans/docker/handbrake/media/output:/output:rw
+
+#pct set 222 -mp0 /mnt/pve/usbdrive/share/handbrake,mp=/home/buurmans/docker/handbrake/media
+#pct set 222 -mp1 /mnt/app_backup,mp=/home/buurmans/backups
