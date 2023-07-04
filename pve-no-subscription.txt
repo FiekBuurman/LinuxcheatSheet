@@ -1,4 +1,7 @@
-/etc/apt/sources.list
+in /etc/apt/sources.list.d/pve-enterprise.list comment the line:
+#deb https://enterprise.proxmox.com/debian/pve bullseye pve-enterprise
+
+in: /etc/apt/sources.list add this
 
 deb http://ftp.nl.debian.org/debian bullseye main contrib
 deb http://ftp.nl.debian.org/debian bullseye-updates main contrib
