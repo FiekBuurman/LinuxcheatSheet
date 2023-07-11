@@ -1,4 +1,5 @@
 127.0.0.1       localhost
+192.168.2.230   promox #only temp untill reinstall of proxmoxtower
 192.168.2.1     KPN-TV
 192.168.2.3     Toon
 192.168.2.4     Chromecast
