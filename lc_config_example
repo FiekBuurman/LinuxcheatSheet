@@ -15,3 +15,6 @@ scsihw: virtio-scsi-single
 smbios1: uuid=7324135c-f5c9-4d74-b999-68db9991c594
 sockets: 1
 vmgenid: 4b74aeed-ba40-47cf-96c0-7ed5d36574c6
+
+
+#found in: /etc/pve/qemu-server
