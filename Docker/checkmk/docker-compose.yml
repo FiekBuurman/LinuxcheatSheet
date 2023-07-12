@@ -1,0 +1,19 @@
+# niet gebruiken VEELSTE ingewikkeld...
+# https://docs.checkmk.com/latest/en/introduction_docker.html
+# docker container run -dit -p 8080:5000 -p 8000:8000 --tmpfs /opt/omd/sites/cmk/tmp:uid=1000,gid=1000 -v monitoring:/omd/sites --name monitoring -v /etc/localtime:/etc/localtime:ro --restart always checkmk/check-mk-raw:2.2.0-latest
+---
+version: '3'
+services:
+  monitoring:
+    image: checkmk/check-mk-raw
+    ports:
+      - 8080:5000
+      - 8000:8000
+    restart: always
+    tmpfs:
+      - /opt/omd/sites/cmk/tmp:uid=1000,gid=1000
+    volumes:
+      - /home/buurmans/docker/monitoring:/omd/sites
+      - /etc/localtime:/etc/localtime:ro
+volumes:
+  monitoring:
