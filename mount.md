@@ -24,3 +24,13 @@ sdc                            8:32   0 931.5G  0 disk
 # set mounts for containers, run it from the proxmox console
  pct set 216 -mp0 /mnt/pve/usbdrive/share,mp=/home/buurmans/share
  pct set 216 -mp1 /mnt/app_backup,mp=/home/buurmans/backups
+
+# nfs mounting examples 
+add nfs share to porxmox host:
+ - mount -t nfs 192.168.2.231:/mnt/vault/share /mnt/pve/vault-share
+add mount to container:
+ - pct set 232 -mp0 /mnt/pve/vault-share,mp=/home/buurmans/vault-share
+
+# un-mount
+ - umount /mnt/pve/thingyToUnMount
+don't forget to rm -rf /mnt/pve/thingyToUnMount to remove the dir too if you want.
