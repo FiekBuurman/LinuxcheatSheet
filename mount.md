@@ -34,3 +34,13 @@ add mount to container:
 # un-mount
  - umount /mnt/pve/thingyToUnMount
 don't forget to rm -rf /mnt/pve/thingyToUnMount to remove the dir too if you want.
+
+# file browser idea
+- mount these dirs from proxmox, make sure the dirs exists inside of the container
+
+``` pct set 204 -mp0 /mnt/pve/pve-vault-shared,mp=/home/buurmans/shares/pve-vault-shared/```
+``` pct set 204 -mp0 /mnt/pve/pve-vault-backups,mp=/home/buurmans/shares/pve-vault-backups/```
+``` pct set 204 -mp0 /mnt/pve/usbdrive,mp=/home/buurmans/shares/usbdrive/```
+``` pct set 204 -mp0 /mnt/pve/synology,mp=/home/buurmans/shares/synology/```
+
+- map /home/buurmans/shares/ in your docker compose to acces all the shares
