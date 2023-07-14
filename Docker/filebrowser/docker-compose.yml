@@ -4,15 +4,29 @@ services:
   file-browser:
     image: filebrowser/filebrowser:latest
     container_name: file-browser
-    user: 1000:1000
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels   
     ports:
       - 8081:80
     volumes:
-      - /home/buurmans/:/srv
+      - /home/buurmans/shares:/srv
       # manually make the database.db & .filebrowser.json
-      # touch /home/buurmans/docker/filebrowser/database.db
-      - /home/buurmans/docker/filebrowser/database.db:/database.db
-      - /home/buurmans/docker/filebrowser/.filebrowser.json:/.filebrowser.json
+      # touch /home/buurmans/docker/database.db
+      - /home/buurmans/docker/filebrowser.db:/database/filebrowser.db
+      - /home/buurmans/docker/settings.json:/config/settings.json
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
+
+
+# mount these dirs from proxmox
+# make sure the dirs exists inside of the container
+
+# pct set 204 -mp0 /mnt/pve/pve-vault-shared,mp=/home/buurmans/shares/pve-vault-shared/
+# pct set 204 -mp1 /mnt/pve/pve-vault-backups,mp=/home/buurmans/shares/pve-vault-backups/
+# pct set 204 -mp2 /mnt/pve/usbdrive,mp=/home/buurmans/shares/usbdrive/
+# pct set 204 -mp3 /mnt/pve/synology,mp=/home/buurmans/shares/synology/
+
+# map /home/buurmans/shares/ in your docker compose to acces all the shares
