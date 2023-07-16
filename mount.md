@@ -38,9 +38,37 @@ don't forget to rm -rf /mnt/pve/thingyToUnMount to remove the dir too if you wan
 # file browser idea
 - mount these dirs from proxmox, make sure the dirs exists inside of the container
 
-``` pct set 204 -mp0 /mnt/pve/pve-vault-shared,mp=/home/buurmans/shares/pve-vault-shared/```
-``` pct set 204 -mp0 /mnt/pve/pve-vault-backups,mp=/home/buurmans/shares/pve-vault-backups/```
+``` pct set 204 -mp0 /mnt/pve/pve-share-smb-truenas,mp=/home/buurmans/shares/pve-smb-shared/```
+``` pct set 204 -mp0 /mnt/pve/vaultshare,mp=/home/buurmans/shares/vaultshare/```
 ``` pct set 204 -mp0 /mnt/pve/usbdrive,mp=/home/buurmans/shares/usbdrive/```
 ``` pct set 204 -mp0 /mnt/pve/synology,mp=/home/buurmans/shares/synology/```
 
 - map /home/buurmans/shares/ in your docker compose to acces all the shares
+
+# mount smb share
+ - sudo apt-get install cifs-utils
+
+make dir like: /mnt/pve/pve-share-smb-truenas
+
+create a file for your credentials
+  - /mnt/.smbcredentials
+add:
+ - username=yourUsername
+ - password=yourPassword
+
+add file so it's created on reboot
+ - nano /etc/fstab
+
+//[ip of server]/[name of share] /media/share cifs credentials=/root/.smb,users,rw,iocharset=utf8
+```
+//192.168.2.231/pve-smb-shared /mnt/pve/pve-share-smb-truenas cifs credentials=/mnt/.smbcredentials,users,rw,iocharset=utf8
+//192.168.2.231/vaultshare /mnt/pve/vaultshare cifs credentials=/mnt/.smbcredentials,users,rw,iocharset=utf8
+
+```
+ - mount the share:
+ mount -a
+mogelijk moet je even uit de dir gaan en opnieuw erin om het verschil te zien, soms zie je de bestanden op de share niet meteen.
+
+Fix rights:
+sudo chown -R nobody:nogroup /mnt/pve/vaultshare/
+sudo chmod -R a+rwx /mnt/pve/vaultshare/
