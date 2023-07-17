@@ -72,3 +72,17 @@ mogelijk moet je even uit de dir gaan en opnieuw erin om het verschil te zien, s
 Fix rights:
 sudo chown -R nobody:nogroup /mnt/pve/vaultshare/
 sudo chmod -R a+rwx /mnt/pve/vaultshare/
+
+pct set 204 -mp0 /mnt/pve/pve-smb-shared,mp=/home/buurmans/shares/pve-smb-shared
+
+
+
+De juiste manier:
+maak een /etc/fstab op de proxmox host:
+
+#lxd-share
+//192.168.2.231/vaultshare /mnt/pve/test-pve-smb-share cifs credentials=/mnt/.smbcredentials,uid=101000,gid=101000,iocharset=utf8
+
+voeg hem toe ana de container:
+pct set 204 -mp0 /mnt/pve/test-pve-smb-share,mp=/home/buurmans/shares/vaultshare/
+en nu kan je hem gebruiken in een docker container....
