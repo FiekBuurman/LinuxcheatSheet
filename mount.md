@@ -35,16 +35,6 @@ add mount to container:
  - umount /mnt/pve/thingyToUnMount
 don't forget to rm -rf /mnt/pve/thingyToUnMount to remove the dir too if you want.
 
-# file browser idea
-- mount these dirs from proxmox, make sure the dirs exists inside of the container
-
-``` pct set 204 -mp0 /mnt/pve/pve-share-smb-truenas,mp=/home/buurmans/shares/pve-smb-shared/```
-``` pct set 204 -mp0 /mnt/pve/vaultshare,mp=/home/buurmans/shares/vaultshare/```
-``` pct set 204 -mp0 /mnt/pve/usbdrive,mp=/home/buurmans/shares/usbdrive/```
-``` pct set 204 -mp0 /mnt/pve/synology,mp=/home/buurmans/shares/synology/```
-
-- map /home/buurmans/shares/ in your docker compose to acces all the shares
-
 # mount smb share
  - sudo apt-get install cifs-utils
 
@@ -61,15 +51,15 @@ add file so it's created on reboot
 
 //[ip of server]/[name of share] /media/share cifs credentials=/root/.smb,users,rw,iocharset=utf8
 ```
-//192.168.2.231/pve-smb-shared /mnt/pve/pve-share-smb-truenas cifs credentials=/mnt/.smbcredentials,users,rw,iocharset=utf8
-//192.168.2.231/vaultshare /mnt/pve/vaultshare cifs credentials=/mnt/.smbcredentials,users,rw,iocharset=utf8
+//192.168.2.231/vaultshare /mnt/pve/test-pve-smb-share cifs credentials=/mnt/.smbcredentials,uid=101000,gid=101000,iocharset=utf8
 
 ```
  - mount the share:
  mount -a
 mogelijk moet je even uit de dir gaan en opnieuw erin om het verschil te zien, soms zie je de bestanden op de share niet meteen.
 
-Fix rights:
+
+# Fix rights:
 sudo chown -R nobody:nogroup /mnt/pve/vaultshare/
 sudo chmod -R a+rwx /mnt/pve/vaultshare/
 
@@ -86,3 +76,17 @@ maak een /etc/fstab op de proxmox host:
 voeg hem toe ana de container:
 pct set 204 -mp0 /mnt/pve/test-pve-smb-share,mp=/home/buurmans/shares/vaultshare/
 en nu kan je hem gebruiken in een docker container....
+
+# find mounts
+findmnt
+
+# delete mount 
+umount /mnt/pve/test-pve-smb-share
+
+# this ones need to be added to the proxmox host, make sure to create the /mnt/.smbcredentials
+//192.168.2.231/vaultshare /mnt/pve/vaultshare cifs credentials=/mnt/.smbcredentials,uid=101000,gid=101000,iocharset=utf8
+//192.168.2.231/pve-smb-shared /mnt/pve/pve-shared cifs credentials=/mnt/.smbcredentials,uid=101000,gid=101000,iocharset=utf8
+
+# add mounted smb share to the container
+pct set 204 -mp0 /mnt/pve/vaultshare,mp=/home/buurmans/shares/vaultshare/
+pct set 204 -mp1 /mnt/pve/pve-shared,mp=/home/buurmans/shares/pve-smb-shared/
