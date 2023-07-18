@@ -6,13 +6,13 @@ print_message() {
 print_message "Setting up Docker..."
 
 print_message "Removing previous versions of Docker"
-apt-get remove docker docker-engine docker.io containerd runc
+sudo apt-get remove docker docker-engine docker.io containerd runc
 
 print_message "apt udate"
-apt-get update
+sudo apt-get update
 
 print_message "Installing needed packages"
-apt-get install \
+sudo apt-get install \
   ca-certificates \
   curl \
   gnupg
