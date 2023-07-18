@@ -13,24 +13,26 @@ services:
       - PLEX_CLAIM=myMofoLovelyClaim
     volumes:
       - /home/buurmans/docker/plex/config:/config
-      - /home/buurmans/share/tvshows:/tv
-      - /home/buurmans/share/movies:/movies
-      - /home/buurmans/share/music:/music
-      - /home/buurmans/share/photos:/photos
+      - /home/buurmans/share/media/tvshows:/tv
+      - /home/buurmans/share/media/movies:/movies
+      - /home/buurmans/share/media/music:/music
+      - /home/buurmans/share/media/photos:/photos
       - /home/buurmans/docker/plex/transcode:/transcode
     restart: unless-stopped
-    
-  duplicati:
-    image: lscr.io/linuxserver/duplicati:latest
-    container_name: duplicati
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Brussels      
-    volumes:
-      - /home/buurmans/docker/duplicati/config:/config
-      - /home/buurmans/backups/duplicati/PlexServer:/app_backups_on_nas
-      - /home/buurmans:/buurmans_home_dir
-    ports:
-      - 8200:8200
-    restart: unless-stopped
+
+#pct set 221 -mp0 /mnt/pve/vaultshare/,mp=/home/buurmans/share/
+
+  # duplicati:
+  #   image: lscr.io/linuxserver/duplicati:latest
+  #   container_name: duplicati
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Europe/Brussels      
+  #   volumes:
+  #     - /home/buurmans/docker/duplicati/config:/config
+  #     - /home/buurmans/backups/duplicati/PlexServer:/app_backups_on_nas
+  #     - /home/buurmans:/buurmans_home_dir
+  #   ports:
+  #     - 8200:8200
+  #   restart: unless-stopped
