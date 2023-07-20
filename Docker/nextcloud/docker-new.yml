@@ -7,6 +7,7 @@ volumes:
 services:
   db:
     image: mariadb
+    container_name: mariadb
     restart: always
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW --innodb-file-per-table=1 --skip-innodb-read-only-compressed
 
@@ -20,13 +21,14 @@ services:
 
   app:
     image: nextcloud
+    container_name: nextcloud
     restart: always
     ports:
       - 8081:80
     links:
       - db
     volumes:
-      - nextcloud:/var/www/html
+      - /home/buurmans/docker/nextercloud:/var/www/html
     environment:
       - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER}
       - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
