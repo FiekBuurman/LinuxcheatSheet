@@ -10,9 +10,9 @@ services:
       - TZ=Europe/Brussels
     volumes:
       - /home/buurmans/docker/nextcloud/config:/config
-      - /home/buurmans/share/clouddrive:/data
+      - /home/buurmans/share:/data
     ports:
       - 443:443
     restart: unless-stopped
 
-# pct set 214 -mp0 /mnt/pve/usbdrive/share,mp=/home/buurmans/share
+#pct set 214 -mp0 /mnt/pve/vaultshare/nextcloud/,mp=/home/buurmans/share
