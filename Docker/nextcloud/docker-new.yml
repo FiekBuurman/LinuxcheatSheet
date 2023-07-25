@@ -52,3 +52,5 @@ sudo docker run \
 --volume /var/run/docker.sock:/var/run/docker.sock:ro \
 --env NEXTCLOUD_DATADIR="/home/buurmans/share" \
 nextcloud/all-in-one:latest
+
+
