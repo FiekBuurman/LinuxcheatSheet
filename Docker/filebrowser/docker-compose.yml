@@ -17,5 +17,6 @@ services:
 
 #pct set 204 -mp0 /mnt/pve/vaultshare,mp=/home/buurmans/shares/vaultshare/
 #pct set 204 -mp1 /mnt/pve/pve-shared,mp=/home/buurmans/shares/pve-smb-shared/
+#pct set 204 -mp2 /mnt/pve/pve-backups-truenas,mp=/home/buurmans/shares/pve-backups-truenas
 
 # map /home/buurmans/shares/ in your docker compose to acces all the shares
