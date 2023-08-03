@@ -1,0 +1,38 @@
+;
+$TTL    604800
+@       IN      SOA     local.buurmans.info. local.buurmans.info. (
+                        20230730        ; Serial
+                        604800          ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+
+;
+@               IN      NS      local.buurmans.
+
+;
+@               IN      A       192.168.2.203
+
+;
+proxmoxs        IN      A       192.168.2.200
+devops          IN      A       192.168.2.202
+bind9           IN      A       192.168.2.203
+filebrowser     IN      A       192.168.2.204
+nodeexp         IN      A       192.168.2.206
+monitor         IN      A       192.168.2.207
+pihole-main     IN      A       192.168.2.210
+heimdall        IN      A       192.168.2.211
+passbolt        IN      A       192.168.2.212
+cloudflare      IN      A       192.168.2.213
+nextcloud       IN      A       192.168.2.214
+uptime-kuma     IN      A       192.168.2.215
+mariadb         IN      A       192.168.2.217
+pialert         IN      A       192.168.2.218
+sabnzb          IN      A       192.168.2.219
+pihole-slave    IN      A       192.168.2.220
+plex            IN      A       192.168.2.221
+proxmoxl        IN      A       192.168.2.230
+truenas         IN      A       192.168.2.231
+handbrake       IN      A       192.168.2.233
+homeassistant   IN      A       192.168.2.250
+synology        IN      A       192.168.2.253

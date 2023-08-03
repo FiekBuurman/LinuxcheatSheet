@@ -1,0 +1,16 @@
+---
+services:
+  bind9:
+    container_name: bind9
+    image: ubuntu/bind9:latest
+    environment:
+      - BIND9_USER=root
+      - TZ=Europe/Brussels
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - /home/buurmans/docker/config:/etc/bind
+      - /home/buurmans/docker/cache:/var/cache/bind
+      - /home/buurmans/docker/records:/var/lib/bind
+    restart: unless-stopped
