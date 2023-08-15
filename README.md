@@ -65,3 +65,14 @@ echo "PermitRootLogin yes" > /etc/ssh/sshd_config.d/rootlogin.conf && systemctl 
 sudo apt-get install neofetch
 sudo bash -c $'echo "neofetch" >> /etc/profile.d/mymotd.sh && chmod +x /etc/profile.d/mymotd.sh'
 ```
+
+# kill LXC container
+ - Do 'ps aux | grep [container ID]'
+ - ps aux | grep 233
+
+ ```
+ root        1041  0.0  0.0   5024  3328 ?        Ss   10:10   0:01 /usr/bin/lxc-start -F -n 233
+ ```
+  
+ - kill [lxc monitor] process with -9. 
+ - kill -9 233
