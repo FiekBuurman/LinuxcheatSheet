@@ -31,3 +31,8 @@ check the config file: in /etc/pve/qemu-server and add the serial:
 | Machine | Model | Serial | Vendor|
 |---|---|---|---|
 | Lenovo | WDC_WD40EFRX-68N32N0 | WD-WCC7K5NPL12H | Plofkotje on Tweakers |
+
+| Item         | Price | # In stock |
+|--------------|:-----:|-----------:|
+| Juicy Apples |  1.99 |        739 |
+| Bananas      |  1.89 |          6 |
