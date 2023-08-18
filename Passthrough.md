@@ -28,11 +28,16 @@ check the config file: in /etc/pve/qemu-server and add the serial:
 /dev/disk/by-id/ata-WDC_WD10SMZW-11Y0TS0_WD-WXN1A8710Z83,backup=0,size=953837M
 
 
-| Machine  | Model                     | Serial               | Vendor                  | Info              |
-|--------- |----------------------     |-----------------     |-----------------------  |-----------        |
-| Lenovo   | WDC_WD40EFRX-68N32N0      | WD-WCC7K5NPL12H      | Plofkotje - Tweakers    | WDRED 4TB HDD     |
-| Lenovo   | INTENSO_SATA_III_SSD      | 1169079102A900043742 | Erol - Tweakers         | Intenso 240GB SSD |
-| proxmoxS | TK0080GDSAE               | PHWL4495024C080KGN   | quadrofource - Tweakers | ?? 80 GB SSD      |
-| proxmoxS | Samsung_SSD_850_PRO_128GB | S24ZNSAG401164E      | MOS                     | Samsung 128GB SSD |
-
-
+| Machine  | Model                      | Serial               | Vendor                  | Info                  |
+|----------|----------------------------|----------------------|-------------------------|-----------------------|
+| Lenovo   | WDC_WD40EFRX-68N32N0       | WD-WCC7K5NPL12H      | Plofkotje - Tweakers    | WDRED 4TB HDD         |
+| Lenovo   | WDC_WD40EFRX-68N32N0       | WD-WCC7K6AC33J5      | Chamu - Tweakers        | WDRED 4TB HDD         |
+| Lenovo   | INTENSO_SATA_III_SSD       | 1169079102A900043742 | Erol - Tweakers         | Intenso 240GB SSD     |
+| proxmoxS | TK0080GDSAE                | PHWL4495024C080KGN   | quadrofource - Tweakers | ?? 80 GB SSD          |
+| proxmoxS | Samsung_SSD_850_PRO_128GB  | S24ZNSAG401164E      | MOS                     | Samsung 128GB SSD     |
+| proxmoxL | Micron_2400_MTFDKBA512QFM  | 22423BF4B4B3         | Stef                    | 512GB NVME            |
+| proxmoxL | Samsung_SSD_840_PRO_Series | S1ANNSADC41514N      | MOS                     | 128GB SSD             |
+| proxmoxL | KINGSTON_SA400S37120G      | 50026B7675000D96     | Jafar                   | 120GB SSD             |
+| proxmoxL | ST4000VN008-2DR166         | ZGY3XFYC             | MOS                     | Seagate Iron Wolf 4TB |
+| proxmoxL | ST4000DM000-1F2168         | W30128HC             | MOS                     | Seagate Desktop 4TB   |
+| proxmoxL | ST4000DM000-1F2168         | W3012796             | MOS                     | Seagate Desktop 4TB   |
