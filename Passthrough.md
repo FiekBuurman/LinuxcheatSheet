@@ -28,6 +28,6 @@ check the config file: in /etc/pve/qemu-server and add the serial:
 /dev/disk/by-id/ata-WDC_WD10SMZW-11Y0TS0_WD-WXN1A8710Z83,backup=0,size=953837M
 
 
-| Machine | Model | Serial | Vendor|
-|---|---|---|---|
-| Lenovo | WDC_WD40EFRX-68N32N0 | WD-WCC7K5NPL12H | Plofkotje on Tweakers |
+| Machine | Model                | Serial          | Vendor                |
+|---------|----------------------|-----------------|-----------------------|
+| Lenovo  | WDC_WD40EFRX-68N32N0 | WD-WCC7K5NPL12H | Plofkotje on Tweakers |
