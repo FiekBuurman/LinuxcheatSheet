@@ -28,6 +28,11 @@ check the config file: in /etc/pve/qemu-server and add the serial:
 /dev/disk/by-id/ata-WDC_WD10SMZW-11Y0TS0_WD-WXN1A8710Z83,backup=0,size=953837M
 
 
-| Machine | Model                | Serial          | Vendor                |
-|---------|----------------------|-----------------|-----------------------|
-| Lenovo  | WDC_WD40EFRX-68N32N0 | WD-WCC7K5NPL12H | Plofkotje on Tweakers |
+| Machine  | Model                     | Serial               | Vendor                  | Info              |
+|--------- |----------------------     |-----------------     |-----------------------  |-----------        |
+| Lenovo   | WDC_WD40EFRX-68N32N0      | WD-WCC7K5NPL12H      | Plofkotje - Tweakers    | WDRED 4TB HDD     |
+| Lenovo   | INTENSO_SATA_III_SSD      | 1169079102A900043742 | Erol - Tweakers         | Intenso 240GB SSD |
+| proxmoxS | TK0080GDSAE               | PHWL4495024C080KGN   | quadrofource - Tweakers | ?? 80 GB SSD      |
+| proxmoxS | Samsung_SSD_850_PRO_128GB | S24ZNSAG401164E      | MOS                     | Samsung 128GB SSD |
+
+
