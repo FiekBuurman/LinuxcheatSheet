@@ -108,3 +108,9 @@ check disc beeing used:
 fdisk -l
 fdisk -l /dev/sdb
 cfdisk /dev/sdb
+
+- copy files
+cp -r /mnt/vault/share/media/music /mnt/usbdrive/usb-drive-backups
+
+- sync files
+rsync -avu --progress -r /mnt/vault/share/media/movies /mnt/usbdrive/usb-drive-backups

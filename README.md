@@ -76,3 +76,7 @@ sudo bash -c $'echo "neofetch" >> /etc/profile.d/mymotd.sh && chmod +x /etc/prof
   
  - kill [lxc monitor] process with -9. 
  - kill -9 233
+
+ # Stop VM
+  - cat /etc/pve/.vmlist
+  - qm stop [VMID]

@@ -16,6 +16,7 @@ check how what number of scsi are in use, if there is only 1 drive (default) scs
  - qm set 231 -scsi1 /dev/disk/by-id/ata-ST4000VN008-2DR166_ZGY3XFYC
  - qm set 231 -scsi2 /dev/disk/by-id/ata-ST4000DM000-1F2168_W30128HC
  - qm set 231 -scsi3 /dev/disk/by-id/ata-ST4000DM000-1F2168_W3012796
+ - qm set 231 -scsi4 /dev/disk/by-id/ata-WDC_WD10SMZW-11Y0TS0_WD-WXN1A8710Z83
 
 you want to create something like:
 
@@ -24,3 +25,8 @@ check the config file: in /etc/pve/qemu-server and add the serial:
 /dev/disk/by-id/ata-ST4000VN008-2DR166_ZGY3XFYC,size=3726GiB,serial=ZGY3XFYC
 /dev/disk/by-id/ata-ST4000DM000-1F2168_W30128HC,size=3726GiB,serial=W30128HC
 /dev/disk/by-id/ata-ST4000DM000-1F2168_W3012796,size=3726GiB,serial=W3012796
+/dev/disk/by-id/ata-WDC_WD10SMZW-11Y0TS0_WD-WXN1A8710Z83,backup=0,size=953837M
+
+
+| Machine | Model | Serial | Vendor|
+| Lenovo | WDC_WD40EFRX-68N32N0 | WD-WCC7K5NPL12H | Plofkotje on Tweakers |
