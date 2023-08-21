@@ -20,7 +20,7 @@ services:
       - /home/buurmans/docker/plex/transcode:/transcode
     restart: unless-stopped
 
-#pct set 221 -mp0 /mnt/pve/vaultshare/,mp=/home/buurmans/share/
+#pct set 221 -mp0 /mnt/pve/truenas-share/share,mp=/home/buurmans/share/
 
   # duplicati:
   #   image: lscr.io/linuxserver/duplicati:latest

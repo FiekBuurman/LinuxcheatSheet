@@ -23,6 +23,9 @@ services:
 # settings for handbrake on proxmoxL
 # pct set 232 -mp0 /mnt/pve/vault/handbrake,mp=/home/buurmans/docker/handbrake/media
 
+# on new server
+#pct set 233 -mp0 /mnt/pve/truenas-share/share/media/handbrake,mp=/home/buurmans/share/media
+
 volumes:
   - /home/buurmans/docker/handbrake/appdata:/config:rw
   - /home/buurmans/docker/handbrake/storage:/storage:ro

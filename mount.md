@@ -83,7 +83,11 @@ findmnt
 # delete mount 
 umount /mnt/pve/test-pve-smb-share
 
-# this ones need to be added to the proxmox host, make sure to create the /mnt/.smbcredentials
+# this ones need to be added to the proxmox host, make sure to create the /mnt/.smbcredentials and add it to /etc/fstab then run mount -a
+
+//192.168.2.231/universe /mnt/pve/truenas-share cifs credentials=/mnt/.smbcredentials,uid=101000,gid=101000,iocharset=utf8
+//192.168.2.231/mnt/vault/universe /mnt/pve/truenas-share cifs credentials=/mnt/.smbcredentials,uid=101000,gid=101000,iocharset=utf8
+/
 //192.168.2.231/vaultshare /mnt/pve/vaultshare cifs credentials=/mnt/.smbcredentials,uid=101000,gid=101000,iocharset=utf8
 //192.168.2.231/pve-smb-shared /mnt/pve/pve-shared cifs credentials=/mnt/.smbcredentials,uid=101000,gid=101000,iocharset=utf8
 

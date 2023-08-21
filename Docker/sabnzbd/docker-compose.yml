@@ -30,3 +30,5 @@ services:
     ports:
       - 8080:8080
     restart: unless-stopped
+
+    #pct set 219 -mp0 /mnt/pve/truenas-share/share/media,mp=/home/buurmans/share/
