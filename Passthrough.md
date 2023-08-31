@@ -23,6 +23,12 @@ you want to create something like:
 
 check the config file: in /etc/pve/qemu-server and add the serial:
 
+sdb                                 8:16   0   3.6T  0 disk   /dev/disk/by-id/wwn-0x5000c5008ff0bba7 /dev/disk/by-id/ata-ST4000DM000-1F2168_W30128HC
+sdc                                 8:32   0   3.6T  0 disk   /dev/disk/by-id/wwn-0x5000c500b4a37362 /dev/disk/by-id/ata-ST4000VN008-2DR166_ZGY3XFYC
+sdd                                 8:48   0   3.6T  0 disk   /dev/disk/by-id/ata-ST4000DM000-1F2168_W3012796 /dev/disk/by-id/wwn-0x5000c5008ff1a764
+sde                                 8:64   0   3.6T  0 disk   /dev/disk/by-id/wwn-0x50014ee20f718d09 /dev/disk/by-id/ata-WDC_WD40EFRX-68N32N0_WD-WCC7K6AC33J5
+sdf                                 8:80   0   3.6T  0 disk   /dev/disk/by-id/ata-WDC_WD40EFRX-68N32N0_WD-WCC7K5NPL12H /dev/disk/by-id/wwn-0x50014ee2648d5cbd
+
 scsi0: NVME:vm-231-disk-0,size=10G
 scsi1: /dev/disk/by-id/ata-ST4000VN008-2DR166_ZGY3XFYC,size=3907018584K,serial=ZGY3XFYC,backup=0
 scsi2: /dev/disk/by-id/ata-ST4000DM000-1F2168_W30128HC,size=3907018584K,serial=W30128HC,backup=0
