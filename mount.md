@@ -87,7 +87,10 @@ umount /mnt/pve/test-pve-smb-share
 
 //192.168.2.231/universe /mnt/pve/truenas-share cifs credentials=/mnt/.smbcredentials,uid=101000,gid=101000,iocharset=utf8
 //192.168.2.231/mnt/vault/universe /mnt/pve/truenas-share cifs credentials=/mnt/.smbcredentials,uid=101000,gid=101000,iocharset=utf8
-/
+
+Deze is gebruikt op beide proxmox om de truenas te delen
+//192.168.2.231/universe /mnt/pve/truenas-share cifs credentials=/mnt/.smbcredentials,uid=101000,gid=101000
+
 //192.168.2.231/vaultshare /mnt/pve/vaultshare cifs credentials=/mnt/.smbcredentials,uid=101000,gid=101000,iocharset=utf8
 //192.168.2.231/pve-smb-shared /mnt/pve/pve-shared cifs credentials=/mnt/.smbcredentials,uid=101000,gid=101000,iocharset=utf8
 
