@@ -6,8 +6,7 @@ sudo bash -c $'echo "neofetch" >> /etc/profile.d/mymotd.sh && chmod +x /etc/prof
 ```
 # update & clean packages
 ```
-sudo apt update && apt upgrade -y && apt full-upgrade -y
-sudo apt --purge autoremove
+sudo apt update && apt upgrade -y && apt full-upgrade -y && apt --purge autoremove
 ```
 # reboot
 
