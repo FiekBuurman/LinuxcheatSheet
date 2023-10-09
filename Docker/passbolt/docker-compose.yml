@@ -60,3 +60,4 @@ volumes:
 
 networks:
   services:
+# pct set 212 -mp0 /mnt/pve/synology-app-backups/passbolt,mp=/home/buurmans/synology-app-backups
