@@ -13,24 +13,11 @@ services:
       - TZ=Europe/Brussels
     volumes:
       - /home/buurmans/docker/handbrake/appdata:/config:rw
-      - /home/buurmans/docker/handbrake/storage:/storage:ro
-      - /home/buurmans/vault-share/media/handbrake/watch:/watch:rw
-      - /home/buurmans/vault-share/media/handbrake/output:/output:rw
+      - /home/buurmans/docker/handbrake/storage:/storage:ro        
+      - /home/buurmans/share/handbrake/watch:/watch:rw
+      - /home/buurmans/share/handbrake/output:/output:rw
 
-#pct set 222 -mp0 /mnt/pve/usbdrive/share/handbrake,mp=/home/buurmans/docker/handbrake/media
-#pct set 222 -mp1 /mnt/app_backup,mp=/home/buurmans/backups
-
-# settings for handbrake on proxmoxL
-# pct set 232 -mp0 /mnt/pve/vault/handbrake,mp=/home/buurmans/docker/handbrake/media
-
-# on new server
-#pct set 233 -mp0 /mnt/pve/truenas-share/share/media/handbrake,mp=/home/buurmans/share/media
-
-volumes:
-  - /home/buurmans/docker/handbrake/appdata:/config:rw
-  - /home/buurmans/docker/handbrake/storage:/storage:ro
-  - /home/buurmans/docker/handbrake/media/watch:/watch:rw
-  - /home/buurmans/docker/handbrake/media/output:/output:rw
+#pct set 233 -mp0 /mnt/pve/truenas-share/media,mp=/home/buurmans/share
 
 
 

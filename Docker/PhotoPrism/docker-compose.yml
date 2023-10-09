@@ -40,6 +40,5 @@ services:
       - "./database:/var/lib/mysql" # DO NOT REMOVE
     env_file:
       - stack.env
+#pct set 234 -mp0 /mnt/pve/truenas-share/photoprism,mp=/home/buurmans/share/photoprism
 
-
-# pct set 234 -mp0 /mnt/pve/truenas-share/share/photoprism,mp=/home/buurmans/share/photoprism

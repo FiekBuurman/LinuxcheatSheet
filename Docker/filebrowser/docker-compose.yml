@@ -19,3 +19,10 @@ services:
 #pct set 204 -mp1 /mnt/pve/synology,mp=/home/buurmans/shares/synology-backups/
 
 # map /home/buurmans/shares/ in your docker compose to acces all the shares
+
+# //07-10-2023 mounting points for the new HP server
+pct set 204 -mp0 /mnt/pve/synology-app-backups,mp=/home/buurmans/shares/synology-app-backups/
+pct set 204 -mp1 /mnt/pve/synology,mp=/home/buurmans/shares/synology-proxmox-backups/
+pct set 204 -mp2 /mnt/pve/truenas-app-backups,mp=/home/buurmans/shares/truenas-app-backups/
+pct set 204 -mp3 /mnt/pve/truenas-proxmox-backups,mp=/home/buurmans/shares/truenas-proxmox-backups/
+pct set 204 -mp4 /mnt/pve/truenas-share,mp=/home/buurmans/shares/truenas-share/

@@ -20,19 +20,4 @@ services:
       - /home/buurmans/docker/plex/transcode:/transcode
     restart: unless-stopped
 
-#pct set 221 -mp0 /mnt/pve/truenas-share/share,mp=/home/buurmans/share/
-
-  # duplicati:
-  #   image: lscr.io/linuxserver/duplicati:latest
-  #   container_name: duplicati
-  #   environment:
-  #     - PUID=1000
-  #     - PGID=1000
-  #     - TZ=Europe/Brussels      
-  #   volumes:
-  #     - /home/buurmans/docker/duplicati/config:/config
-  #     - /home/buurmans/backups/duplicati/PlexServer:/app_backups_on_nas
-  #     - /home/buurmans:/buurmans_home_dir
-  #   ports:
-  #     - 8200:8200
-  #   restart: unless-stopped
+#pct set 221 -mp0 /mnt/pve/truenas-share/,mp=/home/buurmans/share/

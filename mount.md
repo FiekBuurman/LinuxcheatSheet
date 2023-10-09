@@ -97,3 +97,16 @@ Deze is gebruikt op beide proxmox om de truenas te delen
 # add mounted smb share to the container
 pct set 204 -mp0 /mnt/pve/vaultshare,mp=/home/buurmans/shares/vaultshare/
 pct set 204 -mp1 /mnt/pve/pve-shared,mp=/home/buurmans/shares/pve-smb-shared/
+
+# on the new HP Server
+//192.168.2.231/backups /mnt/pve/truenas-app-backups cifs credentials=/mnt/.smbcredentials,uid=101000,gid=101000
+//192.168.2.231/share /mnt/pve/truenas-share cifs credentials=/mnt/.smbcredentials,uid=101000,gid=101000
+
+ vault
+    backups
+    proxmox-backups    
+    synology
+    share
+        media
+        nextcloud
+        etc etc
