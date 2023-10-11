@@ -110,3 +110,11 @@ pct set 204 -mp1 /mnt/pve/pve-shared,mp=/home/buurmans/shares/pve-smb-shared/
         media
         nextcloud
         etc etc
+
+# proxmox backup server
+ - mkdir /mnt/truenas
+ - chown 34:34 /mnt/truenas
+ - etc/fstab, add
+ - //192.168.2.231/proxmox-backups /mnt/truenas cifs rw,auto,uid=34,noforceuid,gid=34,noforcegid,credentials=/mnt/.smbcredentials 0 0
+ - mount -a
+ - mkdir /mnt/truenas/backupserver
