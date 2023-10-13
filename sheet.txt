@@ -114,3 +114,7 @@ cp -r /mnt/vault/share/media/music /mnt/usbdrive/usb-drive-backups
 
 - sync files
 rsync -avu --progress -r /mnt/vault/share/media/movies /mnt/usbdrive/usb-drive-backups
+
+Change IP-Address
+ - nano /etc/network/interfaces
+ - systemctl restart networking.service
