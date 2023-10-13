@@ -41,3 +41,37 @@
 192.168.2.251   CT-template
 192.168.2.253   synology
 192.168.2.254   KPN-modem
+
+
+
+# proxmox range
+# 192.168.2.200 proxmox-hp
+# 192.168.2.201 proxmox-dell - now zevercloud
+# 192.168.2.202 proxmox-backup-server - now devops
+
+# Network range
+# 192.168.2.210 pi-hole-main
+# 192.168.2.211 pi-hole-fallback - now heimdall
+# 192.168.2.212 cloudflare-tunnels - now passbolt
+# 192.168.2.213 pi-alert - cloudflare
+# 192.168.2.214 uptime-kuma - now nextcloud
+
+# media range
+# 192.168.2.220 photoprism - pi-holefall back
+# 192.168.2.221 plex
+# 192.168.2.222 sabnzb 
+# 192.168.2.223 handbrake
+# 192.168.2.224 nextcloud
+
+# misc range
+# 192.168.2.230 template
+# 192.168.2.231 heimdall - truenas
+# 192.168.2.232 passbolt
+# 192.168.2.233 filebrowser - handbrake
+# 192.168.2.234 portainer/monitoring want to split these up. - photoprism
+# 192.168.2.236 devops
+
+# 192.168.2.250 home-assistant
+# 192.168.2.252 truenas - template
+# 192.168.2.253 synology
+# 192.168.2.254 kpn-modem
