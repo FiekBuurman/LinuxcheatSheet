@@ -118,3 +118,12 @@ rsync -avu --progress -r /mnt/vault/share/media/movies /mnt/usbdrive/usb-drive-b
 Change IP-Address
  - nano /etc/network/interfaces
  - systemctl restart networking.service
+
+fix ZFS and docker errors like: 10-init-users.sh: sed: can't move '/etc/group' to '/etc/group.bak': Invalid argument
+In the LXC container:
+ - nano /etc/docker/daemon.json
+add:
+{
+  "storage-driver": "vfs"
+}
+reboot
