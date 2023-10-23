@@ -1,0 +1,33 @@
+---
+version: '3.1'
+services:
+
+  freefilesync:
+    image: jlesage/freefilesync
+    #container_name: free-file-sync
+    user: 1000:1000
+    environment:
+      - TZ=Europe/Brussels
+    ports:
+      - "5800:5800"
+    volumes:
+      - /docker/appdata/freefilesync:/config:rw
+      - /home/buurmans/shares:/storage:rw
+
+  cloudflare-tunnel:
+    image: cloudflare/cloudflared:latest
+    #container_name: cloudflare-tunnels
+    environment:
+      - TZ=Europe/Brussels
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token $CLOUDFLARE_TUNNEL_TOKEN
+   
+# pct set 237 -mp0 /mnt/pve/synology-app-backups,mp=/home/buurmans/shares/synology-app-backups/
+# pct set 237 -mp1 /mnt/pve/synology,mp=/home/buurmans/shares/synology-proxmox-backups/
+# pct set 237 -mp2 /mnt/pve/truenas-app-backups,mp=/home/buurmans/shares/truenas-app-backups/
+# pct set 237 -mp3 /mnt/pve/truenas-proxmox-backups,mp=/home/buurmans/shares/truenas-proxmox-backups/
+# pct set 237 -mp4 /mnt/pve/truenas-share,mp=/home/buurmans/shares/truenas-share/
+
+# inside the PRIVILEGED container:
+  # mkdir /home/buurmans/shares/synology-app-backups/
+  # sudo mount -t nfs 192.168.2.253:/volume1/app_backups /home/buurmans/shares/synology-app-backups/
