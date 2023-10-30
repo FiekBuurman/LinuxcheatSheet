@@ -5,24 +5,27 @@ services:
     image: portainer/portainer-ce:latest
     environment:
       - PUID=1000
-      - PGID=1000       
+      - PGID=1000
       - TZ=Europe/Brussels
     ports:
-      - 9000:9000
+      - 9443:9443
       - 8000:8000
+      - 9000:9000
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /home/buurmans/docker/portainer/data:/data
 
+  cloudflare-tunnel:
+    container_name: cloudflared-tunnel
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token $CLOUDFLARE_TUNNEL_TOKEN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels
 
-
-# docker run -d \
-# --name="portainer" \
-# --restart on-failure \
-# -p 9000:9000 \
-# -p 8000:8000 \ 
-# -v /var/run/docker.sock:/var/run/docker.sock \
-# -v portainer_data:/data \
-# portainer/portainer-ce:latest
-
+# create .env file
+# Cloudflare Tuennel Token
+# CLOUDFLARE_TUNNEL_TOKEN=MyLovelyToken
