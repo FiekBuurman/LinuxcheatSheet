@@ -18,31 +18,6 @@
 192.168.2.100   Fiek-pc
 192.168.2.200   Proxmox
 192.168.2.201   Zevercloud
-192.168.2.202   devops
-192.168.2.203   bind9
-192.168.2.204   filebrowser
-192.168.2.206   nodeexp
-192.168.2.207   monitor
-192.168.2.210   Pi-hole-CT-Main
-192.168.2.211   Heimdall
-192.168.2.212   Passbolt
-192.168.2.213   Cloudflare-tunnels
-192.168.2.214   nextcloud
-192.168.2.215   Uptime-kuma
-192.168.2.217   mariadb
-192.168.2.218   Pi-alert
-192.168.2.219   sabnzbd
-192.168.2.220   Pi-hole-CT-Slave
-192.168.2.221   plex
-192.168.2.230   proxmoxL
-192.168.2.231   truenas
-192.168.2.233   handbrake
-192.168.2.250   Home-assistant
-192.168.2.251   CT-template
-192.168.2.253   synology
-192.168.2.254   KPN-modem
-
-
 
 # proxmox range
 # 192.168.2.200 proxmox-hp
@@ -69,6 +44,7 @@
 192.168.2.232 passbolt
 192.168.2.233 filebrowser
 # 192.168.2.234 portainer/monitoring want to split these up
+192.168.2.235 portainer
 192.168.2.236 devops
 
 # always on / nas
