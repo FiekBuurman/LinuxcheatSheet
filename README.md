@@ -85,3 +85,14 @@ sudo bash -c $'echo "neofetch" >> /etc/profile.d/mymotd.sh && chmod +x /etc/prof
 ```
 sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y
 ```
+
+# compress a directory
+ - tar -zcvf /home/buurmans/nextcloud-docker-persistent.tar.gz /home/buurmans/nextcloud
+ # extract a compressed file
+-  tar -zxvf /home/buurmans/nextcloud-docker-persistent.tar.gz -C /home/buurmans
+# rsync example
+ - rsync --progress -r /home/buurmans/nextcloud buurmans@192.168.2.240:/home/buurmans/
+
+# send the file to an other container
+ - scp /home/buurmans/nextcloud-docker-persistent.tar.gz buurmans@192.168.2.240:/home/buurmans
+ - pv /home/buurmans/nextcloud-docker-persistent.tar.gz | ssh buurmans@192.168.2.240 "cat > /home/buurmans/nextcloud-docker-persistent.tar.gz"
