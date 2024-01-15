@@ -1,0 +1,305 @@
+decluttering_templates:
+  navigation_header:
+    card:
+      type: vertical-stack
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: custom:mushroom-template-card
+              primary: ''
+              secondary: ''
+              icon: |-
+                {{ 
+                'mdi:home' if states('sensor.is_anyone_home') == 'True' 
+                else 'mdi:home-off' 
+                }}
+              layout: vertical
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-main/home
+              icon_color: |-
+                {{ 
+                'green' if states('sensor.is_anyone_home') == 'True' 
+                else 'red' 
+                }}
+              hold_action:
+                action: none
+              double_tap_action:
+                action: none
+              fill_container: true
+              badge_icon: |-
+                {% set people_at_home=states('sensor.number_of_people_home') %}
+                {{
+                'mdi:numeric-1' if people_at_home == '1' else
+                'mdi:numeric-2' if people_at_home == '2' else
+                'mdi:numeric-3' if people_at_home == '3' else
+                '' 
+                }}
+              badge_color: green
+            - type: custom:mushroom-light-card
+              entity: light.group_all
+              secondary_info: none
+              show_brightness_control: false
+              show_color_temp_control: false
+              use_light_color: true
+              collapsible_controls: false
+              layout: vertical
+              primary_info: none
+              icon_type: icon
+              double_tap_action:
+                action: call-service
+                service: light.turn_off
+                data:
+                  transition: 10
+                target:
+                  entity_id: light.group_all
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-main/lights
+              hold_action:
+                action: none
+            - type: custom:mushroom-template-card
+              primary: ''
+              secondary: ''
+              icon: |-
+                {% if states('sensor.is_anyone_home') == 'True' %}
+                  mdi:account-group
+                {% else %}
+                  mdi:account-group-outline
+                {% endif %}
+              icon_color: |-
+                {% if states('sensor.is_anyone_home') == 'True' %}
+                  green
+                {% else %}
+                  red
+                {% endif %}
+              layout: vertical
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-main/familiy
+              fill_container: true
+              hold_action:
+                action: none
+              double_tap_action:
+                action: none
+            - type: custom:mushroom-template-card
+              primary: ''
+              secondary: ''
+              icon: |-
+                {% if is_state("media_player.woonkamer", "playing") %}
+                  mdi:music
+                {% else %} 
+                  mdi:music-off
+                {% endif %}
+              icon_color: |-
+                {% if is_state("media_player.woonkamer", "playing") %}
+                  green
+                {% endif %}
+              layout: vertical
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-main/media-player
+              fill_container: true
+              hold_action:
+                action: none
+              double_tap_action:
+                action: none
+            - type: custom:mushroom-template-card
+              primary: ''
+              secondary: ''
+              icon: >-
+                {% set temperature = (state_attr('climate.thermostat', 'temperature')
+                | default(15)) %}
+
+                {% if is_state("binary_sensor.hot_tap_water", "on") %}
+                  mdi:water-pump
+                {% elif temperature <= 15%}
+                  mdi:radiator-off
+                {% elif temperature < 20.5 %}
+                  mdi:radiator
+                {% else %}
+                  mdi:fire
+                {% endif %}
+              icon_color: >-
+                {% set temperature = (state_attr('climate.thermostat', 'temperature')
+                | default(15)) %}
+
+                {% if is_state("binary_sensor.hot_tap_water", "on") %}
+                  red
+                {% elif temperature <= 15%}
+                  disabled
+                {% elif temperature < 19.5 %}  
+                  yellow
+                {% elif temperature < 20.5 %}
+                  orange
+                {% else %}
+                  red
+                {% endif %}
+              layout: vertical
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-main/verwarming
+              fill_container: true
+              badge_icon: ''
+              picture: ''
+              hold_action:
+                action: none
+              double_tap_action:
+                action: none
+        - type: horizontal-stack
+          cards:
+            - type: custom:mushroom-template-card
+              primary: ''
+              secondary: ''
+              icon: mdi:recycle-variant
+              icon_color: >
+                {% set upcomming_trash =
+                states('sensor.afvalinfo_first_upcomming_trash_type') %}
+
+                {% if 'Papier' in upcomming_trash %}
+                  blue
+                {% elif 'PBD' in upcomming_trash %}
+                  pink
+                {% elif 'GFT' in upcomming_trash %}
+                  green
+                {% else %} 
+                  red
+                {% endif %}
+              layout: vertical
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-main/afval
+              fill_container: true
+              badge_icon: ''
+              picture: ''
+              hold_action:
+                action: none
+              double_tap_action:
+                action: none
+            - type: custom:mushroom-template-card
+              primary: ''
+              secondary: ''
+              icon: >
+                {% set onlinestate =
+                is_state("binary_sensor.internet_troubleshooting", "on") %}
+
+                {% if onlinestate %}
+                  mdi:web-check
+                {% else %}
+                  mdi:web-off
+                {% endif %}
+              hold_action:
+                action: none
+              double_tap_action:
+                action: none
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-main/internet
+              icon_color: >
+                {% set onlinestate =
+                is_state("binary_sensor.internet_troubleshooting", "on") %}
+
+                {% if onlinestate %}
+                green
+                {% else %}
+                red
+                {% endif %}
+              layout: horizontal
+            - type: custom:mushroom-template-card
+              primary: ''
+              secondary: ''
+              icon: |-
+                {% if states('binary_sensor.charging_devices') == 'on'%}
+                  mdi:cellphone-charging
+                {% else %}  
+                  mdi:cellphone-basic
+                {% endif%}
+              icon_color: ''
+              layout: vertical
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-main/mobile-devices
+              fill_container: true
+              hold_action:
+                action: none
+              double_tap_action:
+                action: none
+            - type: custom:mushroom-template-card
+              primary: ''
+              secondary: ''
+              icon: mdi:content-save
+              icon_color: >-
+                {% set current_cpu =
+                states('sensor.buurmansnas_cpu_utilization_total') | int %}
+
+                {% if current_cpu < 10 %}
+                  blue
+                {% elif current_cpu < 30 %}
+                  green
+                {% elif current_cpu < 40 %}
+                  yellow
+                {% elif current_cpu < 60 %}
+                  orange
+                {% else %}
+                  red
+                {% endif %}
+              layout: vertical
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-main/nas
+              fill_container: true
+              hold_action:
+                action: none
+              double_tap_action:
+                action: none
+            - type: custom:mushroom-template-card
+              primary: ''
+              secondary: ''
+              icon: >-
+                {% set lowest_battery = states('sensor.lowest_battery_percentage') |
+                int %}
+
+                {% if lowest_battery < 10 %}
+                  mdi:battery-10
+                {% elif lowest_battery < 20 %}
+                  mdi:battery-20
+                {% elif lowest_battery < 30 %}
+                  mdi:battery-30
+                {% elif lowest_battery < 40 %}
+                  mdi:battery-40
+                {% elif lowest_battery < 50 %}
+                  mdi:battery-50
+                {% elif lowest_battery < 60 %}
+                  mdi:battery-60
+                {% elif lowest_battery < 70 %}
+                  mdi:battery-70
+                {% elif lowest_battery < 80 %}
+                  mdi:battery-80
+                {% elif lowest_battery < 90 %}
+                  mdi:battery-90
+                {% else %}
+                  mdi:battery-check
+                {% endif %}
+              icon_color: >-
+                {% set lowest_battery = states('sensor.lowest_battery_percentage') |
+                int %}
+
+                {% if lowest_battery < 20 %}
+                  red
+                {% elif lowest_battery < 30 %}
+                  orange
+                {% elif lowest_battery < 40 %}
+                  yellow
+                {% else %}
+                  green
+                {% endif %}
+              layout: vertical
+              tap_action:
+                action: navigate
+                navigation_path: /dashboard-main/batteries
+              fill_container: false
+              badge_icon: ''
+              hold_action:
+                action: none
+              double_tap_action:
+                action: none
