@@ -28,14 +28,9 @@ decluttering_templates:
                 action: none
               fill_container: true
               badge_icon: |-
-                {% set people_at_home=states('sensor.number_of_people_home') %}
-                {{
-                'mdi:numeric-1' if people_at_home == '1' else
-                'mdi:numeric-2' if people_at_home == '2' else
-                'mdi:numeric-3' if people_at_home == '3' else
-                '' 
-                }}
-              badge_color: green
+                {% set people_at_home=states('sensor.number_of_people_home') | int %}
+                {{ 'mdi:numeric-' ~ people_at_home if people_at_home > 0 else '' }}
+              badge_color: ''
             - type: custom:mushroom-light-card
               entity: light.group_all
               secondary_info: none
@@ -61,17 +56,10 @@ decluttering_templates:
             - type: custom:mushroom-template-card
               primary: ''
               secondary: ''
-              icon: |-
-                {% if states('sensor.is_anyone_home') == 'True' %}
-                  mdi:account-group
-                {% else %}
-                  mdi:account-group-outline
-                {% endif %}
+              icon: mdi:account-group-outline
               icon_color: |-
-                {% if states('sensor.is_anyone_home') == 'True' %}
+                {% if states('sensor.is_anyone_home') == 'False' %}
                   green
-                {% else %}
-                  red
                 {% endif %}
               layout: vertical
               tap_action:
@@ -82,17 +70,18 @@ decluttering_templates:
                 action: none
               double_tap_action:
                 action: none
+              badge_icon: ''
             - type: custom:mushroom-template-card
               primary: ''
               secondary: ''
               icon: |-
-                {% if is_state("media_player.woonkamer", "playing") %}
+                {% if is_state("sensor.is_any_mediaplayer_playing", "True") %}
                   mdi:music
                 {% else %} 
                   mdi:music-off
                 {% endif %}
               icon_color: |-
-                {% if is_state("media_player.woonkamer", "playing") %}
+                {% if is_state("sensor.is_any_mediaplayer_playing", "True") %}
                   green
                 {% endif %}
               layout: vertical
@@ -104,6 +93,13 @@ decluttering_templates:
                 action: none
               double_tap_action:
                 action: none
+              badge_icon: >-
+                {% set active_mediaplayers =
+                states('sensor.mediaplayers_active_count') | int %}
+
+                {{ 'mdi:numeric-' ~ active_mediaplayers if active_mediaplayers > 0
+                else '' }}
+              badge_color: ''
             - type: custom:mushroom-template-card
               primary: ''
               secondary: ''
@@ -130,7 +126,7 @@ decluttering_templates:
                   disabled
                 {% elif temperature < 19.5 %}  
                   yellow
-                {% elif temperature < 20.5 %}
+                {% elif temperature <  19.9 %}
                   orange
                 {% else %}
                   red
