@@ -1,0 +1,258 @@
+type: horizontal-stack
+cards:
+  - type: custom:button-card
+    aspect_ratio: 1/1.6
+    custom_fields:
+      location: |
+        [[[
+          var location = states['person.chantal'].state;
+          if (location == "not_home")
+            location = "Away"
+          return `${location}` 
+        ]]]
+      battery: |
+        [[[
+          var sensor = states['sensor.chantal_phone_battery_level'];
+          var icon = sensor.attributes.icon;
+          var level = sensor.state;
+          return `${level}%<ha-icon icon='${icon}' style='width: 16px; vertical-align:2px'></ha-icon>`
+        ]]] 
+      distance: |
+        [[[
+            var d = states['sensor.chantal_distance_from_home'].state;
+            if (d == 'home')
+              return `<ha-icon 
+              icon="mdi:home-outline" style="width: 16px;">
+              </ha-icon>`
+            else 
+              return `<ha-icon
+                  icon="mdi:map-marker-distance"
+                  style="width: 16px; height: 16px; vertical-align: 1px">
+                  </ha-icon> ${d}`
+        ]]]
+    entity: person.chantal
+    show_entity_picture: true
+    show_name: false
+    show_state: false
+    show_last_changed: true
+    triggers_update: all
+    styles:
+      entity_picture:
+        - top: 20%
+      label:
+        - font-size: 10px
+      custom_fields:
+        location:
+          - position: absolute
+          - left: 1%
+          - right: 1%
+          - top: 80%
+          - font-size: 15px
+        distance:
+          - position: absolute
+          - left: 3%
+          - top: 3%
+          - font-size: 11px
+        battery:
+          - position: absolute
+          - right: 3%
+          - top: 3%
+          - font-size: 11px
+          - color: |-
+              [[[
+                var bat_lvl = states["sensor.chantal_phone_battery_level"].state;
+                if (bat_lvl < 30) 
+                    return "#e45649"; 
+                  if (bat_lvl < 50)
+                    return "#ffa229"; 
+                  if (bat_lvl < 101) 
+                    return "#50A14F"; 
+                  else 
+                    return "#ffc640"
+                ]]]
+      icon:
+        - clip-path: circle()
+        - width: 82%
+        - border: 2px solid
+        - border-radius: 200px
+        - border-color: |-
+            [[[ 
+                var location = states['person.chantal'].state;
+                if (location == "home")
+                  return "green"; 
+                if (location == "not_home")
+                  return "red"; 
+              else 
+                  return "gray"]]]
+  - type: custom:button-card
+    aspect_ratio: 1/1.6
+    custom_fields:
+      location: |
+        [[[
+          var location = states['person.stef'].state;
+          if (location == "not_home")
+            location = "Away"
+          return `${location}` 
+        ]]]
+      battery: |
+        [[[
+          var sensor = states['sensor.stef_phone_battery_level'];
+          var icon = sensor.attributes.icon;
+          var level = sensor.state;
+          return `${level}%<ha-icon icon='${icon}' style='width: 16px; vertical-align:2px'></ha-icon>`
+        ]]] 
+      distance: |
+        [[[
+            var d = states['sensor.stef_distance_from_home'].state;
+            if (d == 'home')
+              return `<ha-icon 
+              icon="mdi:home-outline" style="width: 16px;">
+              </ha-icon>`
+            else 
+              return `<ha-icon
+                  icon="mdi:map-marker-distance"
+                  style="width: 16px; height: 16px; vertical-align: 1px">
+                  </ha-icon> ${d}`
+        ]]]
+    entity: person.stef
+    show_entity_picture: true
+    show_name: false
+    show_state: false
+    show_last_changed: true
+    triggers_update: all
+    styles:
+      entity_picture:
+        - top: 20%
+      label:
+        - font-size: 10px
+      custom_fields:
+        location:
+          - position: absolute
+          - left: 1%
+          - right: 1%
+          - top: 80%
+          - font-size: 15px
+        distance:
+          - position: absolute
+          - left: 3%
+          - top: 3%
+          - font-size: 11px
+        battery:
+          - position: absolute
+          - right: 3%
+          - top: 3%
+          - font-size: 11px
+          - color: |-
+              [[[
+                var bat_lvl = states["sensor.stef_phone_battery_level"].state;
+                if (bat_lvl < 30) 
+                    return "#e45649"; 
+                  if (bat_lvl < 50)
+                    return "#ffa229"; 
+                  if (bat_lvl < 101) 
+                    return "#50A14F"; 
+                  else 
+                    return "#ffc640"
+                ]]]
+      icon:
+        - clip-path: circle()
+        - width: 82%
+        - border: 2px solid
+        - border-radius: 200px
+        - border-color: |-
+            [[[ 
+                var location = states['person.stef'].state;
+                if (location == "home")
+                  return "green"; 
+                if (location == "not_home")
+                  return "red";
+                if (location == "HR" || location == "Stage" || location == "Cool Blue")
+                  return "deepskyblue";
+              else 
+                  return "gray"]]]
+  - type: custom:button-card
+    aspect_ratio: 1/1.6
+    custom_fields:
+      location: |
+        [[[
+          var location = states['person.fiek'].state;
+          if (location == "not_home")
+            location = "Away"
+          return `${location}` 
+        ]]]
+      battery: |
+        [[[
+          var sensor = states['sensor.fiek_phone_battery_level'];
+          var icon = sensor.attributes.icon;
+          var level = sensor.state;
+          return `${level}%<ha-icon icon='${icon}' style='width: 16px; vertical-align:2px'></ha-icon>`
+        ]]] 
+      distance: |
+        [[[
+            var d = states['sensor.fiek_distance_from_home'].state;
+            if (d == 'home')
+              return `<ha-icon 
+              icon="mdi:home-outline" style="width: 16px;">
+              </ha-icon>`
+            else 
+              return `<ha-icon
+                  icon="mdi:map-marker-distance"
+                  style="width: 16px; height: 16px; vertical-align: 1px">
+                  </ha-icon> ${d}`
+        ]]]
+    entity: person.fiek
+    show_entity_picture: true
+    show_name: false
+    show_state: false
+    show_last_changed: true
+    triggers_update: all
+    styles:
+      entity_picture:
+        - top: 20%
+      label:
+        - font-size: 10px
+      custom_fields:
+        location:
+          - position: absolute
+          - left: 1%
+          - right: 1%
+          - top: 80%
+          - font-size: 15px
+        distance:
+          - position: absolute
+          - left: 3%
+          - top: 3%
+          - font-size: 11px
+        battery:
+          - position: absolute
+          - right: 3%
+          - top: 3%
+          - font-size: 11px
+          - color: |-
+              [[[
+                var bat_lvl = states["sensor.fiek_phone_battery_level"].state;
+                if (bat_lvl < 30) 
+                    return "#e45649"; 
+                  if (bat_lvl < 50)
+                    return "#ffa229"; 
+                  if (bat_lvl < 101) 
+                    return "#50A14F"; 
+                  else 
+                    return "#ffc640"
+                ]]]
+      icon:
+        - clip-path: circle()
+        - width: 82%
+        - border: 2px solid
+        - border-radius: 200px
+        - border-color: |-
+            [[[ 
+                var location = states['person.fiek'].state;
+                if (location == "home")
+                  return "green"; 
+                if (location == "not_home")
+                  return "red";
+                if (location == "MOS")
+                  return "deepskyblue"
+                else 
+                  return "gray"]]]
