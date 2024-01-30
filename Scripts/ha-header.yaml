@@ -1,6 +1,6 @@
 decluttering_templates:
   navigation_header:
-    card:      
+    card:
       type: vertical-stack
       cards:
         - type: horizontal-stack
@@ -89,7 +89,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-main/media-player
+                navigation_path: /dashboard-home/mediaplayers
               fill_container: true
               hold_action:
                 action: none
@@ -136,7 +136,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-main/verwarming
+                navigation_path: /dashboard-home/verwarming
               fill_container: true
               badge_icon: ''
               picture: ''
@@ -166,7 +166,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-main/afval
+                navigation_path: /dashboard-home/afval
               fill_container: true
               badge_icon: ''
               picture: ''
@@ -295,7 +295,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-main/batteries
+                navigation_path: /dashboard-home/battery
               fill_container: false
               badge_icon: ''
               hold_action:
