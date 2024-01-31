@@ -7,6 +7,9 @@ cards:
     show_name: false
     show_state: false
     triggers_update: all
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-home/chantal
     custom_fields:
       location: |
         [[[
@@ -83,6 +86,9 @@ cards:
     show_name: false
     show_state: false
     triggers_update: all
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-home/stef
     custom_fields:
       location: |
         [[[
@@ -159,6 +165,9 @@ cards:
     show_name: false
     show_state: false
     triggers_update: all
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-home/fiek
     custom_fields:
       location: |
         [[[
