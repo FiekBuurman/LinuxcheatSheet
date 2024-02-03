@@ -17,7 +17,7 @@ services:
       - /home/buurmans/share/handbrake/watch:/watch:rw
       - /home/buurmans/share/handbrake/output:/output:rw
 
-#pct set 233 -mp0 /mnt/pve/truenas-share/media,mp=/home/buurmans/share
-
-
-
+# BuurmansBigNas
+# pct set 223 -mp0 /mnt/pve/buurmans-big-nas-share/application_data,mp=/home/buurmans/share
+# chown -R nobody:nogroup /mnt/pve/buurmans-big-nas-share/application_data/handbrake/
+# chmod -R a+rwx /mnt/pve/buurmans-big-nas-share/application_data/handbrake/

@@ -16,7 +16,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-main/home
+                navigation_path: /dashboard-home/home
               icon_color: |-
                 {{ 
                 'green' if states('sensor.is_anyone_home') == 'True' 
@@ -30,7 +30,8 @@ decluttering_templates:
               badge_icon: |-
                 {% set people_at_home=states('sensor.number_of_people_home') | int %}
                 {{ 'mdi:numeric-' ~ people_at_home if people_at_home > 0 else '' }}
-              badge_color: ''
+              badge_color: orange
+              multiline_secondary: false
             - type: custom:mushroom-light-card
               entity: light.group_all
               secondary_info: none
@@ -50,7 +51,7 @@ decluttering_templates:
                   entity_id: light.group_all
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-main/lights
+                navigation_path: /dashboard-home/lights
               hold_action:
                 action: none
             - type: custom:mushroom-template-card
@@ -64,13 +65,14 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-main/familiy
+                navigation_path: /dashboard-home/persons
               fill_container: true
               hold_action:
                 action: none
               double_tap_action:
                 action: none
               badge_icon: ''
+              badge_color: ''
             - type: custom:mushroom-template-card
               primary: ''
               secondary: ''
@@ -87,7 +89,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-main/media-player
+                navigation_path: /dashboard-home/mediaplayers
               fill_container: true
               hold_action:
                 action: none
@@ -134,7 +136,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-main/verwarming
+                navigation_path: /dashboard-home/verwarming
               fill_container: true
               badge_icon: ''
               picture: ''
@@ -164,7 +166,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-main/afval
+                navigation_path: /dashboard-home/afval
               fill_container: true
               badge_icon: ''
               picture: ''
@@ -172,6 +174,7 @@ decluttering_templates:
                 action: none
               double_tap_action:
                 action: none
+              badge_color: ''
             - type: custom:mushroom-template-card
               primary: ''
               secondary: ''
@@ -190,7 +193,7 @@ decluttering_templates:
                 action: none
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-main/internet
+                navigation_path: /dashboard-home/internet
               icon_color: >
                 {% set onlinestate =
                 is_state("binary_sensor.internet_troubleshooting", "on") %}
@@ -223,7 +226,7 @@ decluttering_templates:
             - type: custom:mushroom-template-card
               primary: ''
               secondary: ''
-              icon: mdi:content-save
+              icon: mdi:server-outline
               icon_color: >-
                 {% set current_cpu =
                 states('sensor.buurmansnas_cpu_utilization_total') | int %}
@@ -232,9 +235,9 @@ decluttering_templates:
                   blue
                 {% elif current_cpu < 30 %}
                   green
-                {% elif current_cpu < 40 %}
+                {% elif current_cpu < 50 %}
                   yellow
-                {% elif current_cpu < 60 %}
+                {% elif current_cpu < 75 %}
                   orange
                 {% else %}
                   red
@@ -242,7 +245,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-main/nas
+                navigation_path: /dashboard-home/homelab
               fill_container: true
               hold_action:
                 action: none
@@ -292,7 +295,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-main/batteries
+                navigation_path: /dashboard-home/battery
               fill_container: false
               badge_icon: ''
               hold_action:

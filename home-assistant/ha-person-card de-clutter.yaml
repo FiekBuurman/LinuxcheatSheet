@@ -1,0 +1,47 @@
+common_styles: &common_styles
+  icon:
+    - clip-path: circle()
+    - width: 82%
+    - border: 2px solid
+    - border-radius: 200px
+    - border-color: |-
+        [[[ 
+            var location = entity.state;
+            if (location == "home")
+              return "green"; 
+            if (location == "not_home")
+              return "red"; 
+            else 
+              return "gray"]]]
+
+type: horizontal-stack
+cards:
+  - type: custom:button-card
+    aspect_ratio: 1/1.5
+    entity: person.chantal
+    show_entity_picture: true
+    show_name: false
+    show_state: true
+    show_last_changed: true
+    triggers_update: all
+    styles: *common_styles
+
+  - type: custom:button-card
+    aspect_ratio: 1/1.5
+    entity: person.stef
+    show_entity_picture: true
+    show_name: false
+    show_state: true
+    show_last_changed: true
+    triggers_update: all
+    styles: *common_styles
+
+  - type: custom:button-card
+    aspect_ratio: 1/1.5
+    entity: person.fiek
+    show_entity_picture: true
+    show_name: false
+    show_state: true
+    show_last_changed: true
+    triggers_update: all
+    styles: *common_styles

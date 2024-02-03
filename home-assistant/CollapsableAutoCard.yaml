@@ -1,0 +1,52 @@
+type: custom:collapsable-cards
+card_mod:
+  style: |
+    ha-card {
+      border: 1px #000000 solid;
+      margin: 0 1% 0 1%;
+      width: 98%
+    }
+    .type-custom-collapsable-cards{
+      background: bottom right no-repeat url("/local/images/peugeot_banner.jpg");
+      background-size: cover;
+    }
+title: ' '
+cards:
+  - type: custom:auto-entities
+    filter:
+      include:
+        - entity_id: sensor.benzine_prijs*
+      exclude:
+        - state: unknown
+    sort:
+      method: state
+      numeric: true
+      ip: false
+      ignore_case: false
+      reverse: false
+    card:
+      type: entities
+      state_color: false
+      show_header_toggle: false
+      card_mod:
+        style: |
+          ha-card {
+            background: rgba(0,0,0, 0.8);
+          }
+    show_empty: false
+  - type: entities
+    card_mod:
+      style: |
+        ha-card {
+          background: rgba(0,0,0, 0.8);
+        }
+    entities:
+      - entity: sensor.peugeot_3008_expdate
+        name: APK verval datum
+        secondary_info: none
+      - entity: binary_sensor.peugeot_3008_insured
+        name: Verzekering actief
+      - entity: sensor.peugeot_3008_recall
+        name: Is er een terug roep actie?
+    state_color: true
+    title: Peugeot 3008

@@ -1,0 +1,239 @@
+type: horizontal-stack
+cards:
+  - type: custom:button-card
+    aspect_ratio: 1/1.5
+    entity: person.chantal
+    show_entity_picture: true
+    show_name: false
+    show_state: false
+    triggers_update: all
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-home/chantal
+    custom_fields:
+      location: |
+        [[[
+          var location = entity.state;
+          var changed = states["sensor.person_chantal_last_changed_formatted"].state;
+          if (location == "not_home") location = "Weg";
+          else if (location == "home") location = "Thuis";
+          return `${location} ${changed}`;
+        ]]]
+      battery: |
+        [[[
+          var battery = states['sensor.chantal_phone_battery_level'];
+          return `${battery.state}%<ha-icon icon='${battery.attributes.icon}' style='width: 16px; vertical-align:2px'></ha-icon>`;
+        ]]]
+      distance: |
+        [[[
+          var distance = states['sensor.chantal_distance_from_home'].state;
+          return distance == 'home'
+            ? `<ha-icon icon="mdi:home-outline" style="width: 16px;"></ha-icon>`
+            : `<ha-icon icon="mdi:map-marker-distance" style="width: 16px; height: 16px; vertical-align: 1px"></ha-icon> ${distance}`;
+        ]]]
+    styles:
+      entity_picture:
+        - top: 17%
+      label:
+        - font-size: 12px
+      custom_fields:
+        location:
+          - position: absolute
+          - left: 1%
+          - right: 1%
+          - bottom: 3%
+          - font-size: 10px
+        distance:
+          - position: absolute
+          - left: 3%
+          - top: 3%
+          - font-size: 10px
+        battery:
+          - position: absolute
+          - right: 3%
+          - top: 3%
+          - font-size: 10px
+          - color: |-
+              [[[
+                var bat_lvl = states["sensor.chantal_phone_battery_level"].state;
+                if (bat_lvl < 30) return "#e45649";
+                else if (bat_lvl < 50) return "#ffa229";
+                else if (bat_lvl <= 100) return "#50A14F";
+                else return "#ffc640";
+              ]]]
+      icon:
+        - clip-path: circle()
+        - width: 82%
+        - border: 4px solid
+        - border-radius: 50%
+        - border-color: |-
+            [[[ 
+                var location = entity.state;
+                if (location == "home")
+                  return "green"; 
+                if (location == "not_home")
+                  return "red";
+                if (location == "Basic Fit")
+                  return "darkorange";
+                if (location == "HR" || location == "Stage" || location == "Cool Blue" || location == "MOS")
+                  return "deepskyblue";
+              else 
+                  return "gray"]]]
+  - type: custom:button-card
+    aspect_ratio: 1/1.5
+    entity: person.stef
+    show_entity_picture: true
+    show_name: false
+    show_state: false
+    triggers_update: all
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-home/stef
+    custom_fields:
+      location: |
+        [[[
+          var location = entity.state;
+          var changed = states["sensor.person_stef_last_changed_formatted"].state;
+          if (location == "not_home") location = "Weg";
+          else if (location == "home") location = "Thuis";
+          return `${location} ${changed}`;
+        ]]]
+      battery: |
+        [[[
+          var battery = states['sensor.stef_phone_battery_level'];
+          return `${battery.state}%<ha-icon icon='${battery.attributes.icon}' style='width: 16px; vertical-align:2px'></ha-icon>`;
+        ]]]
+      distance: |
+        [[[
+          var distance = states['sensor.stef_distance_from_home'].state;
+          return distance == 'home'
+            ? `<ha-icon icon="mdi:home-outline" style="width: 16px;"></ha-icon>`
+            : `<ha-icon icon="mdi:map-marker-distance" style="width: 16px; height: 16px; vertical-align: 1px"></ha-icon> ${distance}`;
+        ]]]
+    styles:
+      entity_picture:
+        - top: 17%
+      label:
+        - font-size: 12px
+      custom_fields:
+        location:
+          - position: absolute
+          - left: 1%
+          - right: 1%
+          - bottom: 3%
+          - font-size: 10px
+        distance:
+          - position: absolute
+          - left: 3%
+          - top: 3%
+          - font-size: 10px
+        battery:
+          - position: absolute
+          - right: 3%
+          - top: 3%
+          - font-size: 10px
+          - color: |-
+              [[[
+                var bat_lvl = states["sensor.stef_phone_battery_level"].state;
+                if (bat_lvl < 30) return "#e45649";
+                else if (bat_lvl < 50) return "#ffa229";
+                else if (bat_lvl <= 100) return "#50A14F";
+                else return "#ffc640";
+              ]]]
+      icon:
+        - clip-path: circle()
+        - width: 82%
+        - border: 4px solid
+        - border-radius: 50%
+        - border-color: |-
+            [[[ 
+                var location = entity.state;
+                if (location == "home")
+                  return "green"; 
+                if (location == "not_home")
+                  return "red";
+                if (location == "Basic Fit")
+                  return "darkorange";
+                if (location == "HR" || location == "Stage" || location == "Cool Blue" || location == "MOS")
+                  return "deepskyblue";
+              else 
+                  return "gray"]]]
+  - type: custom:button-card
+    aspect_ratio: 1/1.5
+    entity: person.fiek
+    show_entity_picture: true
+    show_name: false
+    show_state: false
+    triggers_update: all
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-home/fiek
+    custom_fields:
+      location: |
+        [[[
+          var location = entity.state;
+          var changed = states["sensor.person_fiek_last_changed_formatted"].state;
+          if (location == "not_home") location = "Weg";
+          else if (location == "home") location = "Thuis";
+          return `${location} ${changed}`;
+        ]]]
+      battery: |
+        [[[
+          var battery = states['sensor.fiek_phone_battery_level'];
+          return `${battery.state}%<ha-icon icon='${battery.attributes.icon}' style='width: 16px; vertical-align:2px'></ha-icon>`;
+        ]]]
+      distance: |
+        [[[
+          var distance = states['sensor.fiek_distance_from_home'].state;
+          return distance == 'home'
+            ? `<ha-icon icon="mdi:home-outline" style="width: 16px;"></ha-icon>`
+            : `<ha-icon icon="mdi:map-marker-distance" style="width: 16px; height: 16px; vertical-align: 1px"></ha-icon> ${distance}`;
+        ]]]
+    styles:
+      entity_picture:
+        - top: 17%
+      label:
+        - font-size: 12px
+      custom_fields:
+        location:
+          - position: absolute
+          - left: 1%
+          - right: 1%
+          - bottom: 3%
+          - font-size: 10px
+        distance:
+          - position: absolute
+          - left: 3%
+          - top: 3%
+          - font-size: 10px
+        battery:
+          - position: absolute
+          - right: 3%
+          - top: 3%
+          - font-size: 10px
+          - color: |-
+              [[[
+                var bat_lvl = states["sensor.fiek_phone_battery_level"].state;
+                if (bat_lvl < 30) return "#e45649";
+                else if (bat_lvl < 50) return "#ffa229";
+                else if (bat_lvl <= 100) return "#50A14F";
+                else return "#ffc640";
+              ]]]
+      icon:
+        - clip-path: circle()
+        - width: 82%
+        - border: 4px solid
+        - border-radius: 50%
+        - border-color: |-
+            [[[ 
+                var location = entity.state;
+                if (location == "home")
+                  return "green"; 
+                if (location == "not_home")
+                  return "red";
+                if (location == "Basic Fit")
+                  return "darkorange";
+                if (location == "HR" || location == "Stage" || location == "Cool Blue" || location == "MOS")
+                  return "deepskyblue";
+              else 
+                  return "gray"]]]

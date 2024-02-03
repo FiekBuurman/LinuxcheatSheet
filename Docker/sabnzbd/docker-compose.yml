@@ -1,21 +1,6 @@
 ---
 version: '3'
 services:
-  file-browser:
-    image: filebrowser/filebrowser:latest
-    container_name: file-browser
-    user: 1000:1000
-    ports:
-      - 8081:80
-    volumes:
-      - /home/buurmans/:/srv
-      # manually make the database.db
-      # touch /home/buurmans/docker/filebrowser/database.db
-      - /home/buurmans/docker/filebrowser/database.db:/database.db
-    restart: unless-stopped
-    security_opt:
-      - no-new-privileges:true
-
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:latest
     container_name: sabnzbd
@@ -31,5 +16,7 @@ services:
       - 8080:8080
     restart: unless-stopped
 
-#pct set 219 -mp0 /mnt/pve/truenas-share/media,mp=/home/buurmans/share/
-    
+# BuurmansBigNas
+# pct set 222 -mp0 /mnt/pve/buurmans-big-nas-share/application_data/sabnzb,mp=/home/buurmans/share/
+# chown -R nobody:nogroup /mnt/pve/buurmans-big-nas-share/application_data/sabnzb/
+# chmod -R a+rwx /mnt/pve/buurmans-big-nas-share/application_data/sabnzb/
