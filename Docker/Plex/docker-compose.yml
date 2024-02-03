@@ -20,4 +20,6 @@ services:
       - /home/buurmans/docker/plex/transcode:/transcode
     restart: unless-stopped
 
-#pct set 221 -mp0 /mnt/pve/truenas-share/,mp=/home/buurmans/share/
+#pct set 221 -mp0 /mnt/pve/buurmans-big-nas-share/,mp=/home/buurmans/share/
+
+/mnt/pve/buurmans-big-nas-share/application_backups/photoprism
