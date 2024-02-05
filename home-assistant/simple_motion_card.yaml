@@ -58,3 +58,89 @@ icon_color: |
 entity: binary_sensor.aqara_motion_woonkamer_achter_bezetting
 tap_action:
   action: more-info
+
+
+
+  - type: horizontal-stack
+    cards:
+      - type: custom:mushroom-template-card
+        primary: Gang
+        secondary: |
+          {{ states[entity].last_changed | relative_time }} ago
+        icon: mdi:motion-sensor{{ '-off' if is_state(entity, 'off') else '' }}
+        icon_color: |
+          {{ 'orange' if is_state(entity, 'on') else '' }}
+        entity: binary_sensor.motion_sensor_gang_beneden_iaszone
+        tap_action:
+          action: more-info
+        fill_container: false
+      - type: custom:mushroom-template-card
+        primary: Voor Deur
+        secondary: |
+          {{ states[entity].last_changed | relative_time }} ago
+        icon: mdi:door{{ '-open' if is_state(entity, 'on') else '-closed' }}
+        icon_color: |
+          {{ 'orange' if is_state(entity, 'on') }}
+        entity: binary_sensor.deur_sensor_voor_iaszone
+        tap_action:
+          action: more-info
+        fill_container: false
+
+
+
+
+type: custom:mushroom-template-card
+primary: Stef ({{ states[entity].state }} lx)
+secondary: |
+  {{ states[entity].last_changed | relative_time }} ago
+icon: mdi:brightness-
+icon_color: |
+  {{ 'orange' if is_state(entity, 'on') else '' }}
+entity: sensor.aqara_motion_sensor_stef_licht
+tap_action:
+  action: more-info
+fill_container: false
+
+type: custom:mushroom-template-card
+primary: Stef ({{ states[entity].state }} lx)
+secondary: |
+  {{ states[entity].last_changed | relative_time }} ago
+icon: |
+  {% set brightness = states[entity].state | int %}
+  {% if brightness < 10 %}
+    mdi:brightness-1
+  {% elif brightness < 30 %}
+    mdi:brightness-2
+  {% elif brightness < 40 %}
+    mdi:brightness-3
+  {% elif brightness < 50 %}
+    mdi:brightness-4
+  {% elif brightness < 70 %}
+    mdi:brightness-5
+  {% elif brightness < 80 %}
+    mdi:brightness-6
+  {% elif brightness < 1001 %}
+    mdi:brightness-7
+  {% else %}
+    mdi:alert-circle
+  {% endif %}
+icon_color: | 
+  {% set brightness = states[entity].state | int %}
+  {% if brightness < 20 %}
+    'grey'
+  {% elif brightness < 40 %}
+    'blue'
+  {% elif brightness < 60 %}
+    'orange'
+  {% elif brightness < 1000 %}
+    'yellow'
+  {% else %}
+    'red'
+  {% endif %}
+entity: sensor.aqara_motion_sensor_stef_licht
+tap_action:
+  action: more-info
+fill_container: false
+
+
+
