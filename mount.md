@@ -60,8 +60,8 @@ mogelijk moet je even uit de dir gaan en opnieuw erin om het verschil te zien, s
 
 
 # Fix rights:
-sudo chown -R nobody:nogroup /mnt/pve/vaultshare/
-sudo chmod -R a+rwx /mnt/pve/vaultshare/
+chown -R nobody:nogroup /mnt/pve/buurmans-big-nas-share/
+chmod -R a+rwx /mnt/pve/buurmans-big-nas-share/
 
 pct set 204 -mp0 /mnt/pve/pve-smb-shared,mp=/home/buurmans/shares/pve-smb-shared
 

@@ -1,0 +1,266 @@
+type: vertical-stack
+cards:
+  - type: custom:uptime-card
+    entity: binary_sensor.uptimekuma_pihole_main_container
+    hours_to_show: 48
+    title_adaptive_color: true
+    status_adaptive_color: true
+    update_interval: 300
+    severity: 2
+    icon_adaptive_color: true
+    tooltip_adaptive_color: true
+    average_template: '[[[ return variables.uptime.toFixed(2); ]]]% uptime'
+    alias:
+      ok: Online
+      ko: Offline
+    alignment:
+      icon_first: false
+      tooltip_first: true
+    tooltip:
+      hour24: true
+    bar:
+      height: 15
+      round: 1
+    show:
+      icon: false
+      title: true
+  - type: custom:uptime-card
+    entity: binary_sensor.uptimekuma_pihole_fallback_container
+    hours_to_show: 48
+    title_adaptive_color: true
+    status_adaptive_color: true
+    update_interval: 300
+    severity: 2
+    icon_adaptive_color: true
+    tooltip_adaptive_color: true
+    average_template: '[[[ return variables.uptime.toFixed(2); ]]]% uptime'
+    alias:
+      ok: Online
+      ko: Offline
+    alignment:
+      icon_first: false
+      tooltip_first: true
+    tooltip:
+      hour24: true
+    bar:
+      height: 15
+      round: 1
+    show:
+      icon: false
+      title: true
+  - type: custom:uptime-card
+    entity: binary_sensor.uptimekuma_pialert_container
+    hours_to_show: 48
+    title_adaptive_color: true
+    status_adaptive_color: true
+    update_interval: 300
+    severity: 2
+    icon_adaptive_color: true
+    tooltip_adaptive_color: true
+    average_template: '[[[ return variables.uptime.toFixed(2); ]]]% uptime'
+    alias:
+      ok: Online
+      ko: Offline
+    alignment:
+      icon_first: false
+      tooltip_first: true
+    tooltip:
+      hour24: true
+    bar:
+      height: 15
+      round: 1
+    show:
+      icon: false
+      title: true
+  - type: custom:uptime-card
+    entity: binary_sensor.uptimekuma_cloudflare_container
+    hours_to_show: 48
+    title_adaptive_color: true
+    status_adaptive_color: true
+    update_interval: 300
+    severity: 2
+    icon_adaptive_color: true
+    tooltip_adaptive_color: true
+    average_template: '[[[ return variables.uptime.toFixed(2); ]]]% uptime'
+    alias:
+      ok: Online
+      ko: Offline
+    alignment:
+      icon_first: false
+      tooltip_first: true
+    tooltip:
+      hour24: true
+    bar:
+      height: 15
+      round: 1
+    show:
+      icon: false
+      title: true
+  - type: custom:uptime-card
+    entity: binary_sensor.uptimekuma_uptime_kuma_container
+    hours_to_show: 48
+    title_adaptive_color: true
+    status_adaptive_color: true
+    update_interval: 300
+    severity: 2
+    icon_adaptive_color: true
+    tooltip_adaptive_color: true
+    average_template: '[[[ return variables.uptime.toFixed(2); ]]]% uptime'
+    alias:
+      ok: Online
+      ko: Offline
+    alignment:
+      icon_first: false
+      tooltip_first: true
+    tooltip:
+      hour24: true
+    bar:
+      height: 15
+      round: 1
+    show:
+      icon: false
+      title: true
+  - type: custom:uptime-card
+    entity: binary_sensor.uptimekuma_photoprism_container
+    hours_to_show: 48
+    title_adaptive_color: true
+    status_adaptive_color: true
+    update_interval: 300
+    severity: 2
+    icon_adaptive_color: true
+    tooltip_adaptive_color: true
+    average_template: '[[[ return variables.uptime.toFixed(2); ]]]% uptime'
+    alias:
+      ok: Online
+      ko: Offline
+    alignment:
+      icon_first: false
+      tooltip_first: true
+    tooltip:
+      hour24: true
+    bar:
+      height: 15
+      round: 1
+    show:
+      icon: false
+      title: true
+  - type: custom:uptime-card
+    entity: binary_sensor.uptimekuma_plex_container
+    hours_to_show: 48
+    title_adaptive_color: true
+    status_adaptive_color: true
+    update_interval: 300
+    severity: 2
+    icon_adaptive_color: true
+    tooltip_adaptive_color: true
+    average_template: '[[[ return variables.uptime.toFixed(2); ]]]% uptime'
+    alias:
+      ok: Online
+      ko: Offline
+    alignment:
+      icon_first: false
+      tooltip_first: true
+    tooltip:
+      hour24: true
+    bar:
+      height: 15
+      round: 1
+    show:
+      icon: false
+      title: true
+  - type: custom:uptime-card
+    entity: binary_sensor.uptimekuma_sabnzb_container
+    hours_to_show: 48
+    title_adaptive_color: true
+    status_adaptive_color: true
+    update_interval: 300
+    severity: 2
+    icon_adaptive_color: true
+    tooltip_adaptive_color: true
+    average_template: '[[[ return variables.uptime.toFixed(2); ]]]% uptime'
+    alias:
+      ok: Online
+      ko: Offline
+    alignment:
+      icon_first: false
+      tooltip_first: true
+    tooltip:
+      hour24: true
+    bar:
+      height: 15
+      round: 1
+    show:
+      icon: false
+      title: true
+  - type: custom:uptime-card
+    entity: binary_sensor.uptimekuma_handbrake_container
+    hours_to_show: 48
+    title_adaptive_color: true
+    status_adaptive_color: true
+    update_interval: 300
+    severity: 2
+    icon_adaptive_color: true
+    tooltip_adaptive_color: true
+    average_template: '[[[ return variables.uptime.toFixed(2); ]]]% uptime'
+    alias:
+      ok: Online
+      ko: Offline
+    alignment:
+      icon_first: false
+      tooltip_first: true
+    tooltip:
+      hour24: true
+    bar:
+      height: 15
+      round: 1
+    show:
+      icon: false
+      title: true
+  - type: custom:uptime-card
+    entity: binary_sensor.uptimekuma_handbrake_container
+    hours_to_show: 48
+    title_adaptive_color: true
+    status_adaptive_color: true
+    update_interval: 300
+    severity: 2
+    icon_adaptive_color: true
+    tooltip_adaptive_color: true
+    average_template: '[[[ return variables.uptime.toFixed(2); ]]]% uptime'
+    alias:
+      ok: Online
+      ko: Offline
+    alignment:
+      icon_first: false
+      tooltip_first: true
+    tooltip:
+      hour24: true
+    bar:
+      height: 15
+      round: 1
+    show:
+      icon: false
+      title: true
+  - type: custom:uptime-card
+    entity: binary_sensor.uptimekuma_uptime_kuma_container
+    hours_to_show: 48
+    title_adaptive_color: true
+    status_adaptive_color: true
+    update_interval: 300
+    severity: 2
+    icon_adaptive_color: true
+    tooltip_adaptive_color: true
+    average_template: '[[[ return variables.uptime.toFixed(2); ]]]% uptime'
+    alias:
+      ok: Online
+      ko: Offline
+    alignment:
+      icon_first: false
+      tooltip_first: true
+    tooltip:
+      hour24: true
+    bar:
+      height: 15
+      round: 1
+    show:
+      icon: false
+      title: true
