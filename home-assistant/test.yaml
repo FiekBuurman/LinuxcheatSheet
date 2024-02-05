@@ -1,0 +1,115 @@
+type: custom:bar-card
+columns: 1
+entity_row: false
+entities:
+  - entity: sensor.buurmansbignas_cpu_gebruik_totaal
+    name: CPU
+    icon: mdi:cpu-64-bit
+    height: 30px
+  - entity: sensor.buurmansbignas_geheugengebruik_fysiek
+    name: RAM
+    icon: mdi:brain
+    height: 30px
+  - entity: sensor.buurmansbignas_volume_1_volume_gebruikt
+    name: Disc
+    icon: mdi:harddisk
+    height: 30px
+severity:
+  - to: '60'
+    color: rgb(26,204,147,0.33)
+    from: '0'
+  - from: '61'
+    to: '80'
+    color: rgb(255,140,0,0.60)
+  - from: '81'
+    to: '100'
+    color: rgb(163,0,0,0.60)
+positions:
+  indicator: 'off'
+  style: |-
+    bar-card-title {
+      text-shadow: 1px 1px 50px black;
+     }
+
+
+
+type: vertical-stack
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: custom:bar-card
+        columns: 1
+        entity_row: false
+        title: DS120j
+        height: 35px
+        width: 100%
+        entities:
+          - entity: sensor.buurmansnas_cpu_utilization_total
+            name: CPU
+            icon: mdi:cpu-64-bit
+          - entity: sensor.buurmansnas_memory_usage_real
+            name: RAM
+            icon: mdi:brain
+          - entity: sensor.nas_main_drive_volume_used
+            name: Disc
+            icon: mdi:harddisk
+        severity:
+          - color: var(--success-color)
+            from: 0
+            to: 50
+          - color: var(--warning-color)
+            from: 51
+            to: 75
+          - color: var(--error-color)
+            from: 76
+            to: 100
+        positions:
+          indicator: none
+      - show_state: true
+        show_name: true
+        camera_view: auto
+        type: picture-entity
+        image: /local/images/ds-120-s.jpeg
+        entity: sensor.buurmansbignas_uptime_elapsed
+        name: Uptime
+  - type: custom:bar-card
+    columns: 2
+    entity_row: false
+    height: 35px
+    entities:
+      - entity: sensor.nas_usb_drive_temperature
+        name: Drive
+        icon: mdi:thermometer
+      - entity: sensor.buurmansbignas_drive_2_temperatuur
+        name: System
+        icon: mdi:thermometer
+    severity:
+      - color: var(--success-color)
+        from: 0
+        to: 50
+      - color: var(--warning-color)
+        from: 51
+        to: 75
+      - color: var(--error-color)
+        from: 76
+        to: 100
+    positions:
+      indicator: none
+  - type: custom:uptime-card
+    entity: binary_sensor.uptimekuma_buurmanssmallnas
+    hours_to_show: 168
+    title_adaptive_color: true
+    average_template: '[[[ return variables.uptime.toFixed(2); ]]]% uptime'
+    bar:
+      height: 20
+      round: 0
+      spacing: 2
+    show:
+      status: false
+      icon: false
+      title: false
+    tap_action:
+      action: more-info
+    alignment:
+      status: spaced
+      header: center
