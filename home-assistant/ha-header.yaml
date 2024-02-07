@@ -207,17 +207,12 @@ decluttering_templates:
             - type: custom:mushroom-template-card
               primary: ''
               secondary: ''
-              icon: |-
-                {% if states('binary_sensor.charging_devices') == 'on'%}
-                  mdi:cellphone-charging
-                {% else %}  
-                  mdi:cellphone-basic
-                {% endif%}
+              icon: mdi:racing-helmet
               icon_color: ''
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-main/mobile-devices
+                navigation_path: /dashboard-home/f1
               fill_container: true
               hold_action:
                 action: none
