@@ -1,0 +1,118 @@
+type: custom:button-card
+aspect_ratio: 1/1.5
+entity: person.chantal
+show_entity_picture: true
+show_name: false
+show_state: false
+triggers_update: all
+tap_action:
+  action: navigate
+  navigation_path: /dashboard-home/chantal
+custom_fields:
+  location: |
+    [[[
+      var location = entity.state;
+      if (location == "not_home") location = "Weg";
+      else if (location == "home") location = "Thuis";
+      return `${location}`;
+    ]]]
+  location_changed: |
+    [[[
+      var changed = states["sensor.person_chantal_last_changed_formatted"].state;
+      return `${changed}`;
+    ]]]
+  location_icon: |
+    [[[
+      var icon = states["sensor.person_zone_color_icon_chantal"];           
+      return `<ha-icon icon='${icon.attributes.icon}' style='width: 16px;'></ha-icon>`;      
+    ]]]
+  battery: |
+    [[[
+      var battery = states['sensor.chantal_phone_battery_level'];
+      return `${battery.state}%<ha-icon icon='${battery.attributes.icon}' style='width: 16px;'></ha-icon>`;
+    ]]]
+  network: |
+    [[[
+      var signal = states['sensor.chantal_phone_wifi_signal_strength'];
+      return `<ha-icon icon='${signal.attributes.icon}' style='width: 16px;'></ha-icon>`;
+    ]]]  
+  distance: |
+    [[[
+      var distance = states['sensor.chantal_distance_from_home'].state;
+      return distance == 'home'
+        ? `<ha-icon icon="mdi:home-outline" style="width: 16px;"></ha-icon>`
+        : `<ha-icon icon="mdi:map-marker-distance" style="width: 16px;"></ha-icon> ${distance}`;
+    ]]]
+styles:
+  entity_picture:
+    - top: 17%
+  label:
+    - font-size: 12px
+  custom_fields:
+    location:
+      - position: absolute
+      - left: 1%
+      - right: 1%
+      - bottom: 10%
+      - font-size: 12px
+      - font-weight: bolder
+    location_changed:
+      - position: absolute
+      - left: 1%
+      - right: 1%
+      - bottom: 3%
+      - font-size: 8px
+    location_icon:
+      - position: absolute
+      - right: 1%
+      - bottom: 1%
+      - font-size: 20px
+      - color: |-
+          [[[     
+            return states["sensor.person_zone_color_icon_chantal"].state; 
+          ]]]
+    distance:
+      - position: absolute
+      - left: 3%
+      - top: 3%
+      - font-size: 10px
+    network:
+      - position: absolute
+      - left: 3%
+      - bottom: 3%
+      - font-size: 10px
+      - color: |-
+          [[[            
+            var wifi_signal = states['sensor.chantal_phone_wifi_signal_strength'].state;
+            if (wifi_signal == -1)
+              return "var(--info-color)";
+            if (wifi_signal >= -60)
+              return "var(--success-color)";
+            if (wifi_signal >= -75)
+              return "var(--warning-color)";            
+            else "var(--error-color)"
+          ]]]
+    battery:
+      - position: absolute
+      - right: 3%
+      - top: 3%
+      - font-size: 10px
+      - color: |-
+          [[[
+            var bat_lvl = states["sensor.chantal_phone_battery_level"].state;
+            if (bat_lvl < 25) 
+              return "var(--error-color)";
+            else if (bat_lvl < 50) 
+              return "var(--warning-color)";
+            else 
+              return "var(--success-color)";
+          ]]]
+  icon:
+    - clip-path: circle()
+    - width: 82%
+    - border: 4px solid
+    - border-radius: 50%
+    - border-color: |-
+        [[[     
+          return states["sensor.person_zone_color_icon_chantal"].state; 
+        ]]]

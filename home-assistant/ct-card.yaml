@@ -1,0 +1,43 @@
+type: entities
+entities:
+  - entity: sensor.lxc_pihole_main_210_cpu_used
+  - type: custom:bar-card
+    columns: 1
+    entity_row: false
+    title: Pi-hole main
+    height: 20px
+    width: 1
+    decimal: 2
+    entities:
+      - entity: sensor.lxc_pihole_main_210_cpu_used
+        name: CPU
+        icon: mdi:cpu-64-bit
+      - entity: sensor.lxc_pihole_main_210_memory_used_percentage
+        name: RAM
+        icon: mdi:brain
+      - entity: sensor.lxc_pihole_main_210_disk_used_percentage
+        name: Disc
+        icon: mdi:harddisk
+    positions:
+      indicator: inside      
+
+
+type: custom:bar-card
+columns: 1
+entity_row: false
+title: Pi-hole main
+height: 20px
+width: 1
+decimal: 2
+entities:
+  - entity: sensor.lxc_pihole_main_210_cpu_used
+    name: CPU
+    icon: mdi:cpu-64-bit
+  - entity: sensor.lxc_pihole_main_210_memory_used_percentage
+    name: RAM
+    icon: mdi:brain
+  - entity: sensor.lxc_pihole_main_210_disk_used_percentage
+    name: Disc
+    icon: mdi:harddisk
+positions:
+  indicator: inside
