@@ -1,7 +1,8 @@
 decluttering_templates:
   navigation_header:
     card:
-      type: vertical-stack
+      type: custom:stack-in-card
+      mode: vertical
       cards:
         - type: horizontal-stack
           cards:
@@ -318,7 +319,8 @@ views:
         cards:
           - type: custom:decluttering-card
             template: navigation_header
-          - type: horizontal-stack
+          - type: custom:stack-in-card
+            mode: horizontal
             cards:
               - type: custom:button-card
                 aspect_ratio: 1/1.5
@@ -2160,7 +2162,7 @@ views:
               - volume_mute
             collapsible_controls: true
             tap_action:
-              action: toggle
+              action: more-info
             secondary_info: last-changed
           - type: custom:mushroom-media-player-card
             entity: media_player.chromecast
@@ -4067,7 +4069,8 @@ views:
           - type: custom:mushroom-title-card
             title: ''
             subtitle: 'Header used in declutter:'
-          - type: vertical-stack
+          - type: custom:stack-in-card
+            mode: vertical
             cards:
               - type: horizontal-stack
                 cards:
