@@ -17,7 +17,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/home
+                navigation_path: /lovelace/home
               icon_color: |-
                 {{ 
                 'green' if states('sensor.is_anyone_home') == 'True' 
@@ -55,7 +55,7 @@ decluttering_templates:
                   entity_id: light.group_all
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/lights
+                navigation_path: /lovelace/lights
               hold_action:
                 action: none
             - type: custom:mushroom-template-card
@@ -69,7 +69,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/persons
+                navigation_path: /lovelace/persons
               fill_container: true
               hold_action:
                 action: none
@@ -93,7 +93,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/mediaplayers
+                navigation_path: /lovelace/mediaplayers
               fill_container: true
               hold_action:
                 action: none
@@ -140,7 +140,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/verwarming
+                navigation_path: /lovelace/verwarming
               fill_container: true
               badge_icon: ''
               picture: ''
@@ -170,7 +170,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/afval
+                navigation_path: /lovelace/afval
               fill_container: true
               badge_icon: ''
               picture: ''
@@ -197,7 +197,7 @@ decluttering_templates:
                 action: none
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/internet
+                navigation_path: /lovelace/internet
               icon_color: >
                 {% set onlinestate =
                 is_state("binary_sensor.internet_troubleshooting", "on") %}
@@ -212,7 +212,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/f1
+                navigation_path: /lovelace/f1
               fill_container: true
               hold_action:
                 action: none
@@ -240,7 +240,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/homelab
+                navigation_path: /lovelace/homelab
               fill_container: true
               hold_action:
                 action: none
@@ -290,7 +290,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/battery
+                navigation_path: /lovelace/battery
               fill_container: false
               badge_icon: ''
               hold_action:
@@ -331,7 +331,7 @@ views:
                 triggers_update: all
                 tap_action:
                   action: navigate
-                  navigation_path: /dashboard-home/chantal
+                  navigation_path: /lovelace/chantal
                 custom_fields:
                   location: |
                     [[[
@@ -447,7 +447,7 @@ views:
                 triggers_update: all
                 tap_action:
                   action: navigate
-                  navigation_path: /dashboard-home/stef
+                  navigation_path: /lovelace/stef
                 custom_fields:
                   location: |
                     [[[
@@ -563,7 +563,7 @@ views:
                 triggers_update: all
                 tap_action:
                   action: navigate
-                  navigation_path: /dashboard-home/fiek
+                  navigation_path: /lovelace/fiek
                 custom_fields:
                   location: |
                     [[[
@@ -1765,7 +1765,7 @@ views:
                 triggers_update: all
                 tap_action:
                   action: navigate
-                  navigation_path: /dashboard-home/chantal
+                  navigation_path: /lovelace/chantal
                 custom_fields:
                   location: |
                     [[[
@@ -1881,7 +1881,7 @@ views:
                 triggers_update: all
                 tap_action:
                   action: navigate
-                  navigation_path: /dashboard-home/stef
+                  navigation_path: /lovelace/stef
                 custom_fields:
                   location: |
                     [[[
@@ -1997,7 +1997,7 @@ views:
                 triggers_update: all
                 tap_action:
                   action: navigate
-                  navigation_path: /dashboard-home/fiek
+                  navigation_path: /lovelace/fiek
                 custom_fields:
                   location: |
                     [[[
@@ -3725,7 +3725,7 @@ views:
                 triggers_update: all
                 tap_action:
                   action: navigate
-                  navigation_path: /dashboard-home/chantal
+                  navigation_path: /lovelace/chantal
                 custom_fields:
                   location: |
                     [[[
@@ -3841,7 +3841,7 @@ views:
                 triggers_update: all
                 tap_action:
                   action: navigate
-                  navigation_path: /dashboard-home/stef
+                  navigation_path: /lovelace/stef
                 custom_fields:
                   location: |
                     [[[
@@ -3957,7 +3957,7 @@ views:
                 triggers_update: all
                 tap_action:
                   action: navigate
-                  navigation_path: /dashboard-home/fiek
+                  navigation_path: /lovelace/fiek
                 custom_fields:
                   location: |
                     [[[
@@ -4085,7 +4085,7 @@ views:
                     layout: vertical
                     tap_action:
                       action: navigate
-                      navigation_path: /dashboard-home/home
+                      navigation_path: /lovelace/home
                     icon_color: |-
                       {{ 
                       'green' if states('sensor.is_anyone_home') == 'True' 
@@ -4124,7 +4124,7 @@ views:
                         entity_id: light.group_all
                     tap_action:
                       action: navigate
-                      navigation_path: /dashboard-home/lights
+                      navigation_path: /lovelace/lights
                     hold_action:
                       action: none
                   - type: custom:mushroom-template-card
@@ -4138,7 +4138,7 @@ views:
                     layout: vertical
                     tap_action:
                       action: navigate
-                      navigation_path: /dashboard-home/persons
+                      navigation_path: /lovelace/persons
                     fill_container: true
                     hold_action:
                       action: none
@@ -4164,7 +4164,7 @@ views:
                     layout: vertical
                     tap_action:
                       action: navigate
-                      navigation_path: /dashboard-home/mediaplayers
+                      navigation_path: /lovelace/mediaplayers
                     fill_container: true
                     hold_action:
                       action: none
@@ -4211,7 +4211,7 @@ views:
                     layout: vertical
                     tap_action:
                       action: navigate
-                      navigation_path: /dashboard-home/verwarming
+                      navigation_path: /lovelace/verwarming
                     fill_container: true
                     badge_icon: ''
                     picture: ''
@@ -4241,7 +4241,7 @@ views:
                     layout: vertical
                     tap_action:
                       action: navigate
-                      navigation_path: /dashboard-home/afval
+                      navigation_path: /lovelace/afval
                     fill_container: true
                     badge_icon: ''
                     picture: ''
@@ -4269,7 +4269,7 @@ views:
                       action: none
                     tap_action:
                       action: navigate
-                      navigation_path: /dashboard-home/internet
+                      navigation_path: /lovelace/internet
                     icon_color: >
                       {% set onlinestate =
                       is_state("binary_sensor.internet_troubleshooting", "on")
@@ -4289,7 +4289,7 @@ views:
                     layout: vertical
                     tap_action:
                       action: navigate
-                      navigation_path: /dashboard-home/f1
+                      navigation_path: /lovelace/f1
                     fill_container: true
                     hold_action:
                       action: none
@@ -4318,7 +4318,7 @@ views:
                     layout: vertical
                     tap_action:
                       action: navigate
-                      navigation_path: /dashboard-home/homelab
+                      navigation_path: /lovelace/homelab
                     fill_container: true
                     hold_action:
                       action: none
@@ -4368,7 +4368,7 @@ views:
                     layout: vertical
                     tap_action:
                       action: navigate
-                      navigation_path: /dashboard-home/battery
+                      navigation_path: /lovelace/battery
                     fill_container: false
                     badge_icon: ''
                     hold_action:
@@ -4961,7 +4961,7 @@ views:
             triggers_update: all
             tap_action:
               action: navigate
-              navigation_path: /dashboard-home/chantal
+              navigation_path: /lovelace/chantal
             custom_fields:
               memory: |
                 [[[
@@ -5113,7 +5113,7 @@ views:
             entity_id: light.group_all
         tap_action:
           action: navigate
-          navigation_path: /dashboard-home/lights
+          navigation_path: /lovelace/lights
         hold_action:
           action: none
         fill_container: true
