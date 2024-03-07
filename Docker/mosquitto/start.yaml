@@ -1,0 +1,19 @@
+---
+version: "3.9"
+volumes:
+  data:
+services:
+  mosquitto:
+    container_name: "mosquitto"
+    restart: "unless-stopped"
+    environment:
+      - "Europe/Brussels"
+    hostname: "ubmqtt"
+    image: "eclipse-mosquitto"
+    ports:
+      - "1883:1883/tcp"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "data:/mosquitto/config"
+      - "data:/mosquitto/data"
+      - "data:/mosquitto/log"
