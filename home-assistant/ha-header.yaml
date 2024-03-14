@@ -17,7 +17,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/home
+                navigation_path: /lovelace/home
               icon_color: |-
                 {{ 
                 'green' if states('sensor.is_anyone_home') == 'True' 
@@ -52,7 +52,7 @@ decluttering_templates:
                   entity_id: light.group_all
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/lights
+                navigation_path: /lovelace/lights
               hold_action:
                 action: none
             - type: custom:mushroom-template-card
@@ -66,7 +66,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/persons
+                navigation_path: /lovelace/persons
               fill_container: true
               hold_action:
                 action: none
@@ -90,7 +90,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/mediaplayers
+                navigation_path: /lovelace/mediaplayers
               fill_container: true
               hold_action:
                 action: none
@@ -110,7 +110,9 @@ decluttering_templates:
                 {% set temperature = (state_attr('climate.thermostat', 'temperature')
                 | default(15)) %}
 
-                {% if is_state("binary_sensor.hot_tap_water", "on") %}
+                {% if temperature is none %}
+                  mdi:alert-decagram-outline
+                {% elif is_state("binary_sensor.hot_tap_water", "on") %}
                   mdi:water-pump
                 {% elif temperature <= 15%}
                   mdi:radiator-off
@@ -123,7 +125,8 @@ decluttering_templates:
                 {% set temperature = (state_attr('climate.thermostat', 'temperature')
                 | default(15)) %}
 
-                {% if is_state("binary_sensor.hot_tap_water", "on") %}
+                {% if  temperature is none or is_state("binary_sensor.hot_tap_water",
+                "on") %}
                   red
                 {% elif temperature <= 15%}
                   disabled
@@ -137,7 +140,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/verwarming
+                navigation_path: /lovelace/verwarming
               fill_container: true
               badge_icon: ''
               picture: ''
@@ -145,6 +148,8 @@ decluttering_templates:
                 action: none
               double_tap_action:
                 action: none
+              badge_color: ''
+              entity: climate.thermostat
         - type: horizontal-stack
           cards:
             - type: custom:mushroom-template-card
@@ -167,7 +172,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/afval
+                navigation_path: /lovelace/afval
               fill_container: true
               badge_icon: ''
               picture: ''
@@ -194,7 +199,7 @@ decluttering_templates:
                 action: none
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/internet
+                navigation_path: /lovelace/internet
               icon_color: >
                 {% set onlinestate =
                 is_state("binary_sensor.internet_troubleshooting", "on") %}
@@ -213,7 +218,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/f1
+                navigation_path: /lovelace/f1
               fill_container: true
               hold_action:
                 action: none
@@ -241,7 +246,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/homelab
+                navigation_path: /lovelace/homelab
               fill_container: true
               hold_action:
                 action: none
@@ -291,7 +296,7 @@ decluttering_templates:
               layout: vertical
               tap_action:
                 action: navigate
-                navigation_path: /dashboard-home/battery
+                navigation_path: /lovelace/battery
               fill_container: false
               badge_icon: ''
               hold_action:
