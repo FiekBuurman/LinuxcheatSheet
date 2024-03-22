@@ -230,7 +230,7 @@ decluttering_templates:
               icon: mdi:server-outline
               icon_color: >-
                 {% set current_cpu =
-                states('sensor.buurmansnas_cpu_utilization_total') | int %}
+                states('sensor.buurmansbignas_cpu_gebruik_totaal') | int %}
 
                 {% if current_cpu < 10 %}
                   blue
