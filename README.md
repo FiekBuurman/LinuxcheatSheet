@@ -98,3 +98,7 @@ apt-get clean -- removes the entire cache.
 # send the file to an other container
  - scp /home/buurmans/nextcloud-docker-persistent.tar.gz buurmans@192.168.2.240:/home/buurmans
  - pv /home/buurmans/nextcloud-docker-persistent.tar.gz | ssh buurmans@192.168.2.240 "cat > /home/buurmans/nextcloud-docker-persistent.tar.gz"
+
+ # tmux & glances
+ ``` tmux new -s glances ```
+ ``` glances -w ```
