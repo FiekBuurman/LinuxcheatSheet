@@ -87,12 +87,16 @@ sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo
 ```
 
 apt update -y 
+
 apt full-upgrade -y 
+
 apt autoremove -y 
+
 apt clean -y 
+
 apt autoclean -y
 
-apt-get clean -- removes the entire cache.
+apt-get clean
 
 # compress a directory
  - tar -zcvf /home/buurmans/nextcloud-docker-persistent.tar.gz /home/buurmans/nextcloud
