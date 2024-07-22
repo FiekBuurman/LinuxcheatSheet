@@ -86,6 +86,12 @@ sudo bash -c $'echo "neofetch" >> /etc/profile.d/mymotd.sh && chmod +x /etc/prof
 sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y
 ```
 
+apt update -y 
+apt full-upgrade -y 
+apt autoremove -y 
+apt clean -y 
+apt autoclean -y
+
 apt-get clean -- removes the entire cache.
 
 # compress a directory
