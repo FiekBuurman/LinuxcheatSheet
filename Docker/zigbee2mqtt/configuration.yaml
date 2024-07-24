@@ -11,8 +11,8 @@ mqtt:
   # MQTT server URL
   server: 'mqtt://localhost'
   # MQTT server authentication, uncomment if required:
-  user: buurmans
-  password: buurmansmqtt
+  user: test
+  password: test
 
 # Serial settings
 serial:
