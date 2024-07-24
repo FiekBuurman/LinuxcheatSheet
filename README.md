@@ -86,7 +86,17 @@ sudo bash -c $'echo "neofetch" >> /etc/profile.d/mymotd.sh && chmod +x /etc/prof
 sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y
 ```
 
-apt-get clean -- removes the entire cache.
+apt update -y 
+
+apt full-upgrade -y 
+
+apt autoremove -y 
+
+apt clean -y 
+
+apt autoclean -y
+
+apt-get clean
 
 # compress a directory
  - tar -zcvf /home/buurmans/nextcloud-docker-persistent.tar.gz /home/buurmans/nextcloud
@@ -98,3 +108,7 @@ apt-get clean -- removes the entire cache.
 # send the file to an other container
  - scp /home/buurmans/nextcloud-docker-persistent.tar.gz buurmans@192.168.2.240:/home/buurmans
  - pv /home/buurmans/nextcloud-docker-persistent.tar.gz | ssh buurmans@192.168.2.240 "cat > /home/buurmans/nextcloud-docker-persistent.tar.gz"
+
+ # tmux & glances
+ ``` tmux new -s glances ```
+ ``` glances -w ```
