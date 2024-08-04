@@ -6,11 +6,11 @@ services:
     container_name: plex
     network_mode: host
     environment:
+      - TZ=Europe/Brussels
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Brussels
       - VERSION=docker
-      - PLEX_CLAIM=myMofoLovelyClaim
+      - PLEX_CLAIM=claim-uAU6PYCo3VNLbh26R-Ux
     volumes:
       - /home/buurmans/docker/plex/config:/config
       - /home/buurmans/share/media/tvshows:/tv
@@ -18,7 +18,7 @@ services:
       - /home/buurmans/share/media/music:/music
       - /home/buurmans/share/media/photos:/photos
       - /home/buurmans/docker/plex/transcode:/transcode
-    restart: unless-stopped
+    restart: unless-stopped    
 
 #pct set 221 -mp0 /mnt/pve/buurmans-big-nas-share/,mp=/home/buurmans/share/
 
