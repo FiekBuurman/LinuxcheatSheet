@@ -1,0 +1,18 @@
+---
+version: "3"
+services:
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      TZ: Europe/Brussels      
+      WATCHTOWER_SCHEDULE: 0 15 04 * * *
+      WATCHTOWER_CLEANUP: true
+      WATCHTOWER_NO_STARTUP_MESSAGE: true      
+      WATCHTOWER_NOTIFICATIONS: shoutrrr	  
+      WATCHTOWER_NOTIFICATION_URL: discord://DK6L3NamIapk9u_1gS46KyC7FakCzAl1FzyIWfsA5jRUbr0xCbhBRIliTDJ3pWxU1kx0@1149714412068946061
+      WATCHTOWER_NOTIFICATION_TEMPLATE: |-
+       Passbolt {{range .}}{{.Time.Format "02-01-2006 15:04:05"}} ({{.Level}}): {{.Message}}{{println}}{{end}}

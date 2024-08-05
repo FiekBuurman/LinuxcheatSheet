@@ -1,0 +1,21 @@
+---
+version: "3.9"
+volumes:
+  data:
+services:
+  mosquitto:
+    container_name: mosquitto
+    restart: unless-stopped
+    environment:
+      - Europe/Brussels
+    image: eclipse-mosquitto
+    ports:
+      #- 1883:1883/tcp
+      - 1883:1883
+      - 9002:9001
+    stdin_open: true 
+    tty: true
+    volumes:
+      - /home/buurmans/docker/mosquitto/data:/mosquitto/config
+      - /home/buurmans/docker/mosquitto/data:/mosquitto/data      
+      - /home/buurmans/docker/mosquitto/data:/mosquitto/log

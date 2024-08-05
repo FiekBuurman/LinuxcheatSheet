@@ -5,15 +5,18 @@ services:
     container_name: file-browser
     user: 1000:1000
     environment:
-      - TZ=Europe/Brussels  
+      - TZ=Europe/Brussels
     ports:
       - 8081:80
+    healthcheck: 
+      disable: true
     volumes:
       - /home/buurmans/shares:/srv
       - /home/buurmans/docker/filebrowser/database.db:/database.db
     restart: unless-stopped
     security_opt:
-      - no-new-privileges:true     
+      - no-new-privileges:true
+
 
 #pct set 204 -mp0 /mnt/pve/truenas-share,mp=/home/buurmans/shares/vaultshare/
 #pct set 204 -mp1 /mnt/pve/synology,mp=/home/buurmans/shares/synology-backups/

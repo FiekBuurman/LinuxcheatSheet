@@ -1,5 +1,6 @@
 version: '3'
 services:
+  #Database for Passbolt
   db:
     image: mariadb:10.3
     restart: unless-stopped
@@ -60,4 +61,3 @@ volumes:
 
 networks:
   services:
-# pct set 212 -mp0 /mnt/pve/synology-app-backups/passbolt,mp=/home/buurmans/synology-app-backups

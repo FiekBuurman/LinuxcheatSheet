@@ -3,17 +3,17 @@
 version: '3'
 services:
   handbrake:
+    container_name: handbrake
     image: jlesage/handbrake:latest
     ports:
       - 5800:5800
     restart: unless-stopped
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=Europe/Brussels
+      - DARK_MODE=1
     volumes:
       - /home/buurmans/docker/handbrake/appdata:/config:rw
-      - /home/buurmans/docker/handbrake/storage:/storage:ro        
+      - /home/buurmans/docker/handbrake/storage:/storage:ro
       - /home/buurmans/share/handbrake/watch:/watch:rw
       - /home/buurmans/share/handbrake/output:/output:rw
 
