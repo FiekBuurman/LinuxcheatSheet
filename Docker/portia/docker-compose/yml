@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  scrapyd:
+    image: easypi/scrapyd
+    ports:
+      - "6800:6800"
+    volumes:
+      - ./data:/var/lib/scrapyd
+      - /usr/local/lib/python3.11/dist-packages
+    restart: unless-stopped
+
+services:
+  portia:
+    image: scrapinghub/portia
+    ports:
+      - "9001:9001"
+    volumes:
+      - /home/buurmans/docker/portia/projects:/app/data/projects:rw
+    restart: unless-stopped
+
+#docker run -v ~/portia_projects:/app/data/projects:rw -p 9001:9001 scrapinghub/portia
+
+docker run -v /home/buurmans/docker/portia/projects:/app/data/projects:rw -p 9001:9001 scrapinghub/portia
