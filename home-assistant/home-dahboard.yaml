@@ -1,8 +1,7 @@
 decluttering_templates:
   navigation_header:
     card:
-      type: custom:stack-in-card
-      mode: vertical
+      type: vertical-stack
       cards:
         - type: horizontal-stack
           cards:
@@ -28,16 +27,12 @@ decluttering_templates:
               double_tap_action:
                 action: none
               fill_container: true
-              badge_icon: >-
-                {% set people_at_home=states('sensor.number_of_people_home') |
-                int %}
-
-                {{ 'mdi:numeric-' ~ people_at_home if people_at_home > 0 else ''
-                }}
+              badge_icon: |-
+                {% set people_at_home=states('sensor.number_of_people_home') | int %}
+                {{ 'mdi:numeric-' ~ people_at_home if people_at_home > 0 else '' }}
               badge_color: orange
               multiline_secondary: false
             - type: custom:mushroom-light-card
-              entity: light.lampen_zonder_keuken
               secondary_info: none
               show_brightness_control: false
               show_color_temp_control: false
@@ -48,16 +43,16 @@ decluttering_templates:
               icon_type: icon
               double_tap_action:
                 action: call-service
-                service: light.turn_off
-                data:
-                  transition: 10
+                data: {}
                 target:
                   entity_id: light.group_all
+                perform_action: light.turn_off
               tap_action:
                 action: navigate
                 navigation_path: /lovelace/lights
               hold_action:
                 action: none
+              entity: light.lampen_zonder_keuken
             - type: custom:mushroom-template-card
               primary: ''
               secondary: ''
@@ -103,33 +98,33 @@ decluttering_templates:
                 {% set active_mediaplayers =
                 states('sensor.mediaplayers_active_count') | int %}
 
-                {{ 'mdi:numeric-' ~ active_mediaplayers if active_mediaplayers >
-                0 else '' }}
+                {{ 'mdi:numeric-' ~ active_mediaplayers if active_mediaplayers > 0
+                else '' }}
               badge_color: ''
             - type: custom:mushroom-template-card
               primary: ''
               secondary: ''
               icon: >-
-                {% set temperature = (state_attr('climate.thermostat',
-                'temperature') | default(15)) %}
+                {% set temperature = (state_attr('climate.thermostat', 'temperature')
+                | default(15)) %}
 
                 {% if temperature is none %}
                   mdi:alert-decagram-outline
                 {% elif is_state("binary_sensor.hot_tap_water", "on") %}
                   mdi:water-pump
                 {% elif temperature <= 15%}
-                  mdi:radiator-off
+                  mdi:thermometer
                 {% elif temperature < 20.5 %}
                   mdi:radiator
                 {% else %}
                   mdi:fire
                 {% endif %}
               icon_color: >-
-                {% set temperature = (state_attr('climate.thermostat',
-                'temperature') | default(15)) %}
+                {% set temperature = (state_attr('climate.thermostat', 'temperature')
+                | default(15)) %}
 
-                {% if  temperature is none or
-                is_state("binary_sensor.hot_tap_water", "on") %}
+                {% if  temperature is none or is_state("binary_sensor.hot_tap_water",
+                "on") %}
                   red
                 {% elif temperature <= 15%}
                   disabled
@@ -192,9 +187,13 @@ decluttering_templates:
                 is_state("binary_sensor.internet_troubleshooting", "on") %}
 
                 {% if onlinestate %}
-                  mdi:web-check
+
+                mdi:web-check
+
                 {% else %}
-                  mdi:web-off
+
+                mdi:web-off
+
                 {% endif %}
               hold_action:
                 action: none
@@ -207,7 +206,11 @@ decluttering_templates:
                 {% set onlinestate =
                 is_state("binary_sensor.internet_troubleshooting", "on") %}
 
-                {% if onlinestate %} green {% else %} red {% endif %}
+                {% if onlinestate %}
+                green
+                {% else %}
+                red
+                {% endif %}
               layout: vertical
               fill_container: true
             - type: custom:mushroom-template-card
@@ -256,8 +259,8 @@ decluttering_templates:
               primary: ''
               secondary: ''
               icon: >-
-                {% set lowest_battery =
-                states('sensor.lowest_battery_percentage') | int %}
+                {% set lowest_battery = states('sensor.lowest_battery_percentage') |
+                int %}
 
                 {% if lowest_battery < 10 %}
                   mdi:battery-10
@@ -281,8 +284,8 @@ decluttering_templates:
                   mdi:battery-check
                 {% endif %}
               icon_color: >-
-                {% set lowest_battery =
-                states('sensor.lowest_battery_percentage') | int %}
+                {% set lowest_battery = states('sensor.lowest_battery_percentage') |
+                int %}
 
                 {% if lowest_battery < 20 %}
                   red
@@ -303,6 +306,7 @@ decluttering_templates:
                 action: none
               double_tap_action:
                 action: none
+
 views:
   - title: Home
     type: custom:vertical-layout
