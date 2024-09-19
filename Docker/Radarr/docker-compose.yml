@@ -1,0 +1,38 @@
+---
+version: "3"
+services:
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      TZ: Europe/Brussels      
+      WATCHTOWER_SCHEDULE: 0 26 04 * * *
+      WATCHTOWER_CLEANUP: true
+      WATCHTOWER_NO_STARTUP_MESSAGE: true      
+      WATCHTOWER_NOTIFICATIONS: shoutrrr	  
+      WATCHTOWER_NOTIFICATION_URL: discord://DK6L3NamIapk9u_1gS46KyC7FakCzAl1FzyIWfsA5jRUbr0xCbhBRIliTDJ3pWxU1kx0@1149714412068946061
+      WATCHTOWER_NOTIFICATION_TEMPLATE: |-
+       Radarr {{range .}}{{.Time.Format "02-01-2006 15:04:05"}} ({{.Level}}): {{.Message}}{{println}}{{end}}
+
+
+#pct set 226 -mp0 /mnt/pve/buurmans-big-nas-share/,mp=/home/buurmans/share/
+
+---
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels
+    volumes:
+      - /home/buurmans/docker/radarr/data:/config
+      - /home/buurmans/share/media/movies:/movies
+      - /home/buurmans/share/application_data/sabnzb/nzb_downloads/complete:/downloads
+    ports:
+      - 7878:7878
+    restart: unless-stopped
