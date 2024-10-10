@@ -1,0 +1,21 @@
+---
+services:
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=Europe/Brussels
+    volumes:
+      - /home/buurmans/docker/lidarr/config:/config
+      - /home/buurmans/docker/lidarr/data:/data
+      - /home/buurmans/share:/share
+    ports:
+      - 8686:8686
+    restart: unless-stopped
+
+
+    #set 229 -mp0 /mnt/pve/buurmans-big-nas-share/,mp=/mnt/buurmans-big-nas-share
+    
