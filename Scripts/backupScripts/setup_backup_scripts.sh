@@ -43,7 +43,7 @@ chmod +x "$SCRIPTS_DIR"/*.sh
 
 # Prompt the user for WEBHOOK_URL and save it in config.env
 read -p "Enter the WEBHOOK_URL: " WEBHOOK_URL
-echo "WEBHOOK_URL=$WEBHOOK_URL" >> "$SCRIPTS_DIR/config.env"
+echo -e "\nWEBHOOK_URL=$WEBHOOK_URL" >> "$SCRIPTS_DIR/config.env"
 
 # Prompt for cronjob time (hours and minutes)
 read -p "At what hour should the backup run? (0-23): " HOUR
