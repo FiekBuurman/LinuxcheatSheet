@@ -2,7 +2,7 @@
 
 # Variables
 SCRIPTS_DIR="/home/buurmans/docker/scripts"
-BACKUP_DIR="/home/buurmans/share/application_backup"
+BACKUP_DIR="/home/buurmans/share/application_backups"
 FILES=(
     "https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/refs/heads/main/Scripts/backupScripts/backup_cleanup.sh"
     "https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/refs/heads/main/Scripts/backupScripts/backup_docker_data.sh"
