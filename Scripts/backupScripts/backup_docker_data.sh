@@ -8,7 +8,7 @@ DATE=$(date +"%Y%m%d%H%M%S")
 HOSTNAME=$(hostname)
 BACKUP_FILENAME="${HOSTNAME}_docker_data_backup_${DATE}.tar.gz"
 TEMP_DIR="/tmp/backup_sync"
-BACKUPDESTINATION="{$BACKUP_DEST}/{$HOSTNAME}"
+BACKUPDESTINATION="$BACKUP_DEST/$HOSTNAME"
 
 function notify() {
     local timestamp=$(date +'%Y-%m-%d %H:%M:%S')

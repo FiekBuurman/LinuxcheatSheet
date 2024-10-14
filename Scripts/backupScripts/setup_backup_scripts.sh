@@ -2,12 +2,26 @@
 
 # Variables
 SCRIPTS_DIR="/home/buurmans/docker/scripts"
+BACKUP_DIR="/home/buurmans/share/application_backup"
 FILES=(
     "https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/refs/heads/main/Scripts/backupScripts/backup_cleanup.sh"
     "https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/refs/heads/main/Scripts/backupScripts/backup_docker_data.sh"
     "https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/refs/heads/main/Scripts/backupScripts/config.env"
     "https://raw.githubusercontent.com/FiekBuurman/LinuxcheatSheet/refs/heads/main/Scripts/backupScripts/discord.sh"
 )
+
+# Check if /home/buurmans/share/application_backup exists
+if [ ! -d "$BACKUP_DIR" ]; then
+    echo "Error: Directory $BACKUP_DIR does not exist."
+    echo "Please mount the directory from the Proxmox host with the following command:"
+    echo "Example: pct set 221 -mp0 /mnt/pve/buurmans-big-nas-share/,mp=/home/buurmans/share/"
+    exit 1
+fi
+
+# Ensure required packages are installed
+echo "Installing required packages: jq and rsync..."
+apt update -y
+apt install -y jq rsync
 
 # Create the directory if it doesn't exist
 mkdir -p "$SCRIPTS_DIR"
