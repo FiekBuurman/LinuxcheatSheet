@@ -12,7 +12,7 @@ function notify() {
 }
 
 notify "**__Start cleaning backups...__**"
-BACKUP_FILES=($(ls -t $BACKUP_DEST/${HOSTNAME}_*.tar.gz))
+BACKUP_FILES=($(ls -t $BACKUP_DEST/${HOSTNAME}/${HOSTNAME}_*.tar.gz))
 FILE_COUNT=${#BACKUP_FILES[@]}
 TOTAL_FREED_SPACE=0
 
