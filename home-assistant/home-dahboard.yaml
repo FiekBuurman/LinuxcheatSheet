@@ -6,8 +6,8 @@ decluttering_templates:
         - type: horizontal-stack
           cards:
             - type: custom:mushroom-template-card
-              primary: ''
-              secondary: ''
+              primary: ""
+              secondary: ""
               icon: |-
                 {{ 
                 'mdi:home' if states('sensor.is_anyone_home') == 'True' 
@@ -27,12 +27,9 @@ decluttering_templates:
               double_tap_action:
                 action: none
               fill_container: true
-              badge_icon: >-
-                {% set people_at_home=states('sensor.number_of_people_home') |
-                int %}
-
-                {{ 'mdi:numeric-' ~ people_at_home if people_at_home > 0 else ''
-                }}
+              badge_icon: |-
+                {% set people_at_home=states('sensor.number_of_people_home') | int %}
+                {{ 'mdi:numeric-' ~ people_at_home if people_at_home > 0 else '' }}
               badge_color: orange
               multiline_secondary: false
             - type: custom:mushroom-light-card
@@ -57,8 +54,8 @@ decluttering_templates:
                 action: none
               entity: light.lampen_zonder_keuken
             - type: custom:mushroom-template-card
-              primary: ''
-              secondary: ''
+              primary: ""
+              secondary: ""
               icon: mdi:account-group-outline
               icon_color: |-
                 {% if states('sensor.is_anyone_home') == 'False' %}
@@ -73,11 +70,11 @@ decluttering_templates:
                 action: none
               double_tap_action:
                 action: none
-              badge_icon: ''
-              badge_color: ''
+              badge_icon: ""
+              badge_color: ""
             - type: custom:mushroom-template-card
-              primary: ''
-              secondary: ''
+              primary: ""
+              secondary: ""
               icon: |-
                 {% if is_state("sensor.is_any_mediaplayer_playing", "True") %}
                   mdi:music
@@ -101,18 +98,18 @@ decluttering_templates:
                 {% set active_mediaplayers =
                 states('sensor.mediaplayers_active_count') | int %}
 
-                {{ 'mdi:numeric-' ~ active_mediaplayers if active_mediaplayers >
-                0 else '' }}
-              badge_color: ''
+                {{ 'mdi:numeric-' ~ active_mediaplayers if active_mediaplayers > 0
+                else '' }}
+              badge_color: ""
             - type: custom:mushroom-template-card
-              primary: ''
-              secondary: ''
+              primary: ""
+              secondary: ""
               icon: >-
-                {% set temperature = (state_attr('climate.anna', 'temperature')
-                | default(15)) %}
+                {% set temperature = (state_attr('climate.anna', 'temperature') |
+                default(15)) %}
 
                 {% if temperature is none %}
-                  mdi:alert-decagram-outline
+                  mdi:water-pump
                 {% elif temperature <= 15%}
                   mdi:thermometer
                 {% elif temperature < 20.5 %}
@@ -121,9 +118,9 @@ decluttering_templates:
                   mdi:fire
                 {% endif %}
               icon_color: >-
-                {% set temperature = (state_attr('climate.anna', 'temperature')
-                | default(15)) %} {% if  temperature is none
-                  red
+                {% set temperature = (state_attr('climate.anna', 'temperature') |
+                default(15)) %} {% if  temperature is none %}
+                  pink
                 {% elif temperature <= 15%}
                   disabled
                 {% elif temperature < 19.5 %}  
@@ -138,19 +135,19 @@ decluttering_templates:
                 action: navigate
                 navigation_path: /lovelace/verwarming
               fill_container: true
-              badge_icon: ''
-              picture: ''
+              badge_icon: ""
+              picture: ""
               hold_action:
                 action: none
               double_tap_action:
                 action: none
-              badge_color: ''
+              badge_color: ""
               entity: climate.anna
         - type: horizontal-stack
           cards:
             - type: custom:mushroom-template-card
-              primary: ''
-              secondary: ''
+              primary: ""
+              secondary: ""
               icon: mdi:recycle-variant
               icon_color: >
                 {% set upcomming_trash =
@@ -170,16 +167,16 @@ decluttering_templates:
                 action: navigate
                 navigation_path: /lovelace/afval
               fill_container: true
-              badge_icon: ''
-              picture: ''
+              badge_icon: ""
+              picture: ""
               hold_action:
                 action: none
               double_tap_action:
                 action: none
-              badge_color: ''
+              badge_color: ""
             - type: custom:mushroom-template-card
-              primary: ''
-              secondary: ''
+              primary: ""
+              secondary: ""
               icon: >
                 {% set onlinestate =
                 is_state("binary_sensor.internet_troubleshooting", "on") %}
@@ -204,14 +201,18 @@ decluttering_templates:
                 {% set onlinestate =
                 is_state("binary_sensor.internet_troubleshooting", "on") %}
 
-                {% if onlinestate %} green {% else %} red {% endif %}
+                {% if onlinestate %}
+                green
+                {% else %}
+                red
+                {% endif %}
               layout: vertical
               fill_container: true
             - type: custom:mushroom-template-card
-              primary: ''
-              secondary: ''
+              primary: ""
+              secondary: ""
               icon: mdi:racing-helmet
-              icon_color: ''
+              icon_color: ""
               layout: vertical
               tap_action:
                 action: navigate
@@ -222,8 +223,8 @@ decluttering_templates:
               double_tap_action:
                 action: none
             - type: custom:mushroom-template-card
-              primary: ''
-              secondary: ''
+              primary: ""
+              secondary: ""
               icon: mdi:server-outline
               icon_color: >-
                 {% set current_cpu =
@@ -250,11 +251,11 @@ decluttering_templates:
               double_tap_action:
                 action: none
             - type: custom:mushroom-template-card
-              primary: ''
-              secondary: ''
+              primary: ""
+              secondary: ""
               icon: >-
-                {% set lowest_battery =
-                states('sensor.lowest_battery_percentage') | int %}
+                {% set lowest_battery = states('sensor.lowest_battery_percentage') |
+                int %}
 
                 {% if lowest_battery < 10 %}
                   mdi:battery-10
@@ -278,8 +279,8 @@ decluttering_templates:
                   mdi:battery-check
                 {% endif %}
               icon_color: >-
-                {% set lowest_battery =
-                states('sensor.lowest_battery_percentage') | int %}
+                {% set lowest_battery = states('sensor.lowest_battery_percentage') |
+                int %}
 
                 {% if lowest_battery < 20 %}
                   red
@@ -295,7 +296,7 @@ decluttering_templates:
                 action: navigate
                 navigation_path: /lovelace/battery
               fill_container: false
-              badge_icon: ''
+              badge_icon: ""
               hold_action:
                 action: none
               double_tap_action:
