@@ -101,48 +101,15 @@ decluttering_templates:
                 {{ 'mdi:numeric-' ~ active_mediaplayers if active_mediaplayers > 0
                 else '' }}
               badge_color: ""
-            - type: custom:mushroom-template-card
-              primary: ""
-              secondary: ""
-              icon: >-
-                {% set temperature = (state_attr('climate.anna', 'temperature') |
-                default(15)) %}
-
-                {% if temperature is none %}
-                  mdi:water-pump
-                {% elif temperature <= 15%}
-                  mdi:thermometer
-                {% elif temperature < 20.5 %}
-                  mdi:radiator
-                {% else %}
-                  mdi:fire
-                {% endif %}
-              icon_color: >-
-                {% set temperature = (state_attr('climate.anna', 'temperature') |
-                default(15)) %} {% if  temperature is none %}
-                  pink
-                {% elif temperature <= 15%}
-                  disabled
-                {% elif temperature < 19.5 %}  
-                  yellow
-                {% elif temperature <  19.9 %}
-                  orange
-                {% else %}
-                  red
-                {% endif %}
+            - type: custom:mushroom-entity-card
+              entity: binary_sensor.onoff_verwarmen
+              primary_info: none
+              secondary_info: none
+              fill_container: true
               layout: vertical
               tap_action:
                 action: navigate
                 navigation_path: /lovelace/verwarming
-              fill_container: true
-              badge_icon: ""
-              picture: ""
-              hold_action:
-                action: none
-              double_tap_action:
-                action: none
-              badge_color: ""
-              entity: climate.anna
         - type: horizontal-stack
           cards:
             - type: custom:mushroom-template-card
@@ -2534,24 +2501,32 @@ views:
                       {{ (state_attr("sensor.sonos_favorites_2",
                       "items").values() | list)[2]}}
     cards: []
-  - title: verwarming
+  - type: sections
+    max_columns: 3
+    title: verwarming
     path: verwarming
     icon: mdi:radiator
     theme: buurmans-bubble-theme
-    badges: []
-    cards:
-      - type: vertical-stack
+    sections:
+      - type: grid
         cards:
+          - type: custom:gap-card
+            visibility:
+              - condition: screen
+                media_query: '(min-width: 1024px)'
           - type: custom:decluttering-card
             template: navigation_header
+          - type: custom:gap-card
+            visibility:
+              - condition: screen
+                media_query: '(min-width: 1024px)'
+        column_span: 3
+      - type: grid
+        cards:
           - type: thermostat
             entity: climate.anna
             name: Anna
             show_current_as_primary: true
-            features:
-              - type: climate-hvac-modes
-              - type: climate-preset-modes
-                style: dropdown
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-template-card
@@ -2567,9 +2542,9 @@ views:
                   action: none
                 double_tap_action:
                   action: none
-                entity: climate.anna
-                multiline_secondary: true
-                fill_container: true
+                entity: scene.thermostaat_op_15
+                multiline_secondary: false
+                fill_container: false
                 layout: vertical
                 icon_color: >-
                   {% set temperature = (state_attr('climate.anna',
@@ -2580,7 +2555,7 @@ views:
                   {% endif %}
               - type: custom:mushroom-template-card
                 primary: ''
-                secondary: 19.5°c
+                secondary: 18°c
                 icon: mdi:home
                 tap_action:
                   action: perform-action
@@ -2597,13 +2572,13 @@ views:
                   {% set temperature = (state_attr('climate.anna',
                   'temperature') | float | default(15)) %}
 
-                  {% if temperature == 19.5 %}
+                  {% if temperature == 18 %}
                     orange
                   {% endif %}
-                entity: climate.anna
+                entity: scene.thermostaat_op_19_5
               - type: custom:mushroom-template-card
                 primary: ''
-                secondary: 20°c
+                secondary: 19°c
                 icon: mdi:sofa
                 layout: vertical
                 tap_action:
@@ -2619,13 +2594,13 @@ views:
                   {% set temperature = (state_attr('climate.anna',
                   'temperature') | float | default(15)) %}
 
-                  {% if temperature == 20 %}
+                  {% if temperature == 19 %}
                     orange
                   {% endif %}
-                entity: climate.anna
+                entity: scene.thermostaat_op_20
               - type: custom:mushroom-template-card
                 primary: ''
-                secondary: 20.5°c
+                secondary: 19.5°c
                 icon: mdi:fire
                 layout: vertical
                 tap_action:
@@ -2642,75 +2617,31 @@ views:
                   {% set temperature = (state_attr('climate.anna',
                   'temperature') | float | default(15)) %}
 
-                  {% if temperature == 20.5 %}
+                  {% if temperature == 19.5 %}
                     orange
                   {% endif %}
-                entity: climate.anna
-      - type: vertical-stack
+                entity: scene.thermostaat_op_20_5
+          - type: custom:mushroom-entity-card
+            entity: binary_sensor.onoff_verwarmen
+            name: Verwarmen
+            fill_container: true
+            secondary_info: last-updated
+            grid_options:
+              columns: 9
+              rows: 1
+      - type: grid
         cards:
           - type: custom:mini-graph-card
             entities:
-              - sensor.inside_temperature
-            name: Toon afgelopen 24 uur
+              - entity: sensor.climate_temperature
+                name: CV
+              - entity: sensor.inside_temperature
+                name: Anna
+              - entity: sensor.woonkamer_thermometer_eettafel_temperature
+                name: Muur
+            name: Woonkamer temp
             hours_to_show: 24
-            points_per_hour: 1
-            show:
-              labels: false
-              fill: true
-            color_thresholds:
-              - value: 0
-                color: '#0000FF'
-              - value: 17
-                color: '#00FFFF'
-              - value: 17.5
-                color: '#00FF00'
-              - value: 18.5
-                color: '#FFFF00'
-              - value: 19
-                color: '#FFA500'
-              - value: 19.5
-                color: '#FF4500'
-              - value: 20
-                color: '#FF0000'
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.woonkamer_thermometer_eettafel_temperature
-            name: Muur afgelopen 24 uur
-            hours_to_show: 24
-            points_per_hour: 1
-            show:
-              labels: false
-              fill: true
-            color_thresholds:
-              - value: 0
-                color: '#0000FF'
-              - value: 17
-                color: '#00FFFF'
-              - value: 17.5
-                color: '#00FF00'
-              - value: 18.5
-                color: '#FFFF00'
-              - value: 19
-                color: '#FFA500'
-              - value: 19.5
-                color: '#FF4500'
-              - value: 20
-                color: '#FF0000'
-          - type: history-graph
-            entities:
-              - entity: binary_sensor.hot_tap_water
-            hours_to_show: 12
-            show_names: false
-            title: warm water kraan
-            logarithmic_scale: true
-          - graph: line
-            type: sensor
-            entity: sensor.anna_temperatuur
-            detail: 2
-            theme: buurmans-bubble-theme
-            hours_to_show: 24
-      - type: vertical-stack
-        cards:
+            points_per_hour: 6
           - type: entities
             entities:
               - entity: sensor.woonkamer_thermometer_eettafel_humidity
@@ -2802,6 +2733,8 @@ views:
                     icon: true
             show_header_toggle: false
             state_color: true
+      - type: grid
+        cards:
           - show_current: true
             show_forecast: true
             type: weather-forecast
@@ -2814,6 +2747,8 @@ views:
             entities:
               - sensor.neerslag_buienalarm_regen_data
               - sensor.neerslag_buienradar_regen_data
+    dense_section_placement: true
+    cards: []
   - title: afval
     path: afval
     icon: mdi:recycle-variant
@@ -5061,49 +4996,15 @@ views:
                       {{ 'mdi:numeric-' ~ active_mediaplayers if
                       active_mediaplayers > 0 else '' }}
                     badge_color: ''
-                  - type: custom:mushroom-template-card
-                    primary: ''
-                    secondary: ''
-                    icon: >-
-                      {% set temperature = (state_attr('climate.anna',
-                      'temperature') | default(15)) %}
-
-                      {% if temperature is none %}
-                        mdi:water-pump
-                      {% elif temperature <= 15%}
-                        mdi:thermometer
-                      {% elif temperature < 20.5 %}
-                        mdi:radiator
-                      {% else %}
-                        mdi:fire
-                      {% endif %}
-                    icon_color: >-
-                      {% set temperature = (state_attr('climate.anna',
-                      'temperature') | default(15)) %} {% if  temperature is
-                      none %}
-                        pink
-                      {% elif temperature <= 15%}
-                        disabled
-                      {% elif temperature < 19.5 %}  
-                        yellow
-                      {% elif temperature <  19.9 %}
-                        orange
-                      {% else %}
-                        red
-                      {% endif %}
+                  - type: custom:mushroom-entity-card
+                    entity: binary_sensor.onoff_verwarmen
+                    primary_info: none
+                    secondary_info: none
+                    fill_container: true
                     layout: vertical
                     tap_action:
                       action: navigate
                       navigation_path: /lovelace/verwarming
-                    fill_container: true
-                    badge_icon: ''
-                    picture: ''
-                    hold_action:
-                      action: none
-                    double_tap_action:
-                      action: none
-                    badge_color: ''
-                    entity: climate.anna
               - type: horizontal-stack
                 cards:
                   - type: custom:mushroom-template-card
