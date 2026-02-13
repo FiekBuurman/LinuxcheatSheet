@@ -1,7 +1,6 @@
 
-# Disable the ifupdown wait service that's failing
-systemctl disable ifupdown-wait-online.service
-systemctl mask ifupdown-wait-online.service
+## Disable the ifupdown wait service that's failing
+``systemctl disable ifupdown-wait-online.service && systemctl mask ifupdown-wait-online.service ```
 
 
 # Stop the service if it's running
